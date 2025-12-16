@@ -1,0 +1,63 @@
+ .card {
+  background: radial-gradient(circle at top left, rgba(255, 85, 0, 0.18), #050505);
+  border-radius: 16px;
+  border: 1px solid #333;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 270px;
+  height: 270px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+
+.imageWrap {
+  position: relative;
+  height: 190px;
+  overflow: hidden;
+}
+
+.hoverOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.9) 100%);
+  color: #f7f7f7;
+  padding: 16px 18px;
+  display: flex;
+  align-items: flex-end;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  font-size: 0.95rem;
+  line-height: 28.32px;
+  vertical-align: bottom;
+}
+
+.card:hover .hoverOverlay {
+  opacity: 1;
+}
+
+.body {
+  padding: 4px 14px 0; /* removed bottom padding */
+}
+
+.body h3 {
+  font-size: 1.3rem;
+  margin-bottom: 6px;
+  color: #ffffff;
+}
+
+.body p {
+  color: #d0d0d0;
+  line-height: 1.7;
+  font-size: 0.98rem;
+}
+
+@media (max-width: 768px) {
+  .card {
+    min-height: 0;
+  }
+
+  .imageWrap {
+    height: 180px;
+  }
+}
+

@@ -1,0 +1,103 @@
+.wrap {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  margin-left: auto;
+  transform-style: preserve-3d;
+  perspective: 900px;
+}
+
+.ring {
+  position: absolute;
+  inset: 10%;
+  border-radius: 999px;
+  border-width: 14px;
+  border-style: solid;
+  border-color: transparent;
+  box-shadow: 0 22px 65px rgba(0, 0, 0, 0.8);
+  filter: saturate(1.1);
+  mix-blend-mode: screen;
+  background: radial-gradient(circle at 30% 10%, rgba(246, 140, 32, 0.3), transparent 65%);
+}
+
+.ring1 {
+  inset: 6%;
+  border-image: radial-gradient(circle at 30% 0%, rgba(246, 140, 32, 0.9), rgba(246, 140, 32, 0.0)) 1;
+  animation: spinRing1 32s linear infinite;
+}
+
+.ring2 {
+  inset: 12%;
+  border-image: radial-gradient(circle at 0% 50%, rgba(229, 62, 48, 0.9), rgba(229, 62, 48, 0.0)) 1;
+  animation: spinRing2 24s linear infinite reverse;
+}
+
+.ring3 {
+  inset: 18%;
+  border-image: radial-gradient(circle at 70% 10%, rgba(121, 27, 84, 0.95), rgba(121, 27, 84, 0.0)) 1;
+  animation: spinRing3 40s linear infinite;
+}
+
+.ring4 {
+  inset: 24%;
+  border-image: radial-gradient(circle at 10% 80%, rgba(246, 140, 32, 0.85), rgba(246, 140, 32, 0.0)) 1;
+  animation: spinRing4 28s linear infinite reverse;
+}
+
+.ring5 {
+  inset: 30%;
+  border-image: radial-gradient(circle at 50% 50%, rgba(121, 27, 84, 0.9), rgba(121, 27, 84, 0.0)) 1;
+  animation: spinRing5 52s linear infinite;
+}
+
+@keyframes spinRing1 {
+  0% {
+    transform: rotateX(52deg) rotateY(-18deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(52deg) rotateY(-18deg) rotateZ(360deg);
+  }
+}
+
+@keyframes spinRing2 {
+  0% {
+    transform: rotateX(68deg) rotateY(24deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(68deg) rotateY(24deg) rotateZ(360deg);
+  }
+}
+
+@keyframes spinRing3 {
+  0% {
+    transform: rotateX(62deg) rotateY(-38deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(62deg) rotateY(-38deg) rotateZ(360deg);
+  }
+}
+
+@keyframes spinRing4 {
+  0% {
+    transform: rotateX(72deg) rotateY(38deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(72deg) rotateY(38deg) rotateZ(360deg);
+  }
+}
+
+@keyframes spinRing5 {
+  0% {
+    transform: rotateX(60deg) rotateY(-12deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(60deg) rotateY(-12deg) rotateZ(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .wrap {
+    width: 260px;
+    height: 260px;
+  }
+}
