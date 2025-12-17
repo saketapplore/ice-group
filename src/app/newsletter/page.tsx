@@ -1,49 +1,109 @@
+"use client";
+
 import Button from '@/components/Button';
 import Image from 'next/image';
+import AnimateOnScroll from '@/components/AnimateOnScroll';
+import styles from './page.module.css';
+
+const newsletters = [
+    {
+        title: 'MICE Pulse – Q1 Highlights',
+        date: 'March 2025',
+        summary: 'Trends from global conferences, incentive travel ideas, and how hybrid formats are evolving.',
+        image: 'https://images.unsplash.com/photo-1551836022-4c4c79ecde16?auto=format&fit=crop&w=800&q=80',
+    },
+    {
+        title: 'Experience Design Playbook',
+        date: 'January 2025',
+        summary: 'Storytelling frameworks and staging tips to make your next event unforgettable.',
+        image: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=800&q=80',
+    },
+    {
+        title: 'Travel & Incentives Insider',
+        date: 'November 2024',
+        summary: 'Top destinations, visa tips, and ways to reward high performers with memorable journeys.',
+        image: 'https://images.unsplash.com/photo-1526779259212-939e64788e3c?auto=format&fit=crop&w=800&q=80',
+    },
+    {
+        title: 'Operations & On‑Ground Excellence',
+        date: 'September 2024',
+        summary: 'Checklists and backstage learnings from large-scale events across India and the UAE.',
+        image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80',
+    },
+];
 
 export default function NewsletterPage() {
     return (
-        <div className="container">
-            <section style={{ padding: '80px 0', maxWidth: '800px', margin: '0 auto' }}>
-                <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.2fr) minmax(0, 1fr)', gap: '40px', alignItems: 'center' }}>
-                    <div style={{ textAlign: 'left' }}>
-                        <h1 className="text-gradient">Stay Updated</h1>
-                        <p style={{ margin: '20px 0 30px', color: '#ccc', fontSize: '1.2rem' }}>
-                            Subscribe to our newsletter for the latest trends in corporate events and exclusive insights.
-                        </p>
+        <div className={`container ${styles.newsletterPage}`}>
+            {/* Stay Updated hero section */}
+            <section className={styles.stayUpdatedSection}>
+                <AnimateOnScroll animation="scaleIn" delay={0.1}>
+                    <div className={styles.stayUpdatedContent}>
+                        <div className={styles.stayUpdatedText}>
+                            <h1 className={`text-gradient ${styles.stayUpdatedTitle}`}>Stay Updated</h1>
+                            <p className={styles.stayUpdatedDescription}>
+                                Subscribe for curated insights on events, conferences, and MICE travel – no spam, only what busy teams need.
+                            </p>
 
-                        <form style={{ display: 'flex', flexDirection: 'column', gap: '20px', maxWidth: '420px' }}>
-                            <input
-                                type="email"
-                                placeholder="Enter your work email"
-                                style={{
-                                    padding: '16px',
-                                    borderRadius: '50px',
-                                    border: '1px solid #333',
-                                    background: '#111',
-                                    color: 'white',
-                                    fontSize: '1rem',
-                                    outline: 'none'
-                                }}
+                            <form className={styles.newsletterForm}>
+                                <input
+                                    type="email"
+                                    placeholder="Enter your work email"
+                                    className={styles.emailInput}
+                                />
+                                <div>
+                                    <Button variant="primary" style={{ padding: '10px 20px', fontSize: '0.9rem' }}>Subscribe Now</Button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div className={styles.stayUpdatedImage}>
+                            <Image
+                                src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80"
+                                alt="Audience at a corporate event taking notes"
+                                fill
+                                sizes="(min-width: 1024px) 40vw, 100vw"
+                                style={{ objectFit: 'cover' }}
                             />
-                            <div>
-                                <Button variant="primary">Subscribe Now</Button>
-                            </div>
-                        </form>
+                        </div>
                     </div>
+                </AnimateOnScroll>
+            </section>
 
-                    <div style={{ position: 'relative', height: '260px', borderRadius: '20px', overflow: 'hidden', border: '1px solid #222' }}>
-                        <Image
-                            src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80"
-                            alt="Audience at a corporate event taking notes"
-                            fill
-                            sizes="(min-width: 1024px) 40vw, 100vw"
-                            style={{ objectFit: 'cover' }}
-                        />
-                    </div>
+            {/* Recent newsletters */}
+            <section className={styles.newslettersSection}>
+                <AnimateOnScroll animation="fadeInUp" delay={0.1}>
+                    <h2 className={styles.sectionTitle}>Latest Newsletters</h2>
+                    <p className={styles.sectionDescription}>
+                        A quick snapshot of what we&apos;ve been sharing with our partners and clients.
+                    </p>
+                </AnimateOnScroll>
+
+                <div className={styles.newslettersGrid}>
+                    {newsletters.map((item, index) => (
+                        <AnimateOnScroll key={item.title} animation="fadeInUp" delay={0.1 + index * 0.1}>
+                            <article className={styles.newsletterCard}>
+                            <div className={styles.newsletterImageWrap}>
+                                <Image
+                                    src={item.image}
+                                    alt={item.title}
+                                    fill
+                                    sizes="(min-width: 1024px) 20vw, 100vw"
+                                    style={{ objectFit: 'cover' }}
+                                />
+                            </div>
+                            <div className={styles.newsletterCardContent}>
+                                <p className={styles.newsletterDate}>
+                                    {item.date}
+                                </p>
+                                <h3 className={styles.newsletterTitle}>{item.title}</h3>
+                                <p className={styles.newsletterSummary}>{item.summary}</p>
+                            </div>
+                        </article>
+                        </AnimateOnScroll>
+                    ))}
                 </div>
             </section>
         </div>
     );
 }
-

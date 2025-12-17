@@ -45,7 +45,7 @@
 .textarea {
     width: 100%;
     padding: 12px 16px;
-    background: black;
+    background: var(--color-grey);
     border: 1px solid var(--border);
     border-radius: 8px;
     color: white;
@@ -100,4 +100,434 @@
     .grid {
         grid-template-columns: 1fr;
     }
+}
+
+.contactSection {
+  padding: 60px 0;
+  background: linear-gradient(135deg, #454545 0%, #000000 50%, #454545 100%);
+  border-radius: 20px;
+  margin: 20px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.contactSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(180deg, 
+    var(--color-black) 0%, 
+    rgba(0, 0, 0, 0.8) 40%, 
+    rgba(0, 0, 0, 0.4) 70%, 
+    transparent 100%
+  );
+  pointer-events: none;
+  filter: blur(1px);
+  z-index: 1;
+}
+
+.contactSection::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(180deg, 
+    transparent 0%, 
+    rgba(69, 69, 69, 0.3) 30%, 
+    rgba(69, 69, 69, 0.7) 60%, 
+    var(--color-grey) 100%
+  );
+  pointer-events: none;
+  filter: blur(1px);
+  z-index: 1;
+}
+
+.contactSection > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* New Contact Page Design */
+.contactPage {
+  min-height: 100vh;
+  padding: 30px 16px;
+  background: linear-gradient(135deg, #000000 0%, #454545 50%, #000000 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 40px;
+}
+
+.contactModal {
+  background: rgba(69, 69, 69, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  overflow: hidden;
+  max-width: 980px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.leftSection {
+  position: relative;
+  min-height: 420px;
+}
+
+.imageOverlay {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+}
+
+.darkEventImage {
+  filter: brightness(0.5) contrast(1.3);
+}
+
+.imageOverlay::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.7) 50%,
+    transparent 100%
+  );
+  z-index: 1;
+}
+
+.overlayContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 24px;
+  z-index: 2;
+  color: white;
+}
+
+.brandName {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  background: linear-gradient(to right, #791b54 0%, #791b54 30%, #e91e63 50%, #f68c20 70%, #f68c20 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+.brandDescription {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+.rightSection {
+  padding: 32px 32px 28px;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+}
+
+.formHeader {
+  margin-bottom: 20px;
+}
+
+.formTitle {
+  font-size: 2.1rem;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  font-family: var(--font-secondary);
+  background: linear-gradient(to right, #791b54 0%, #791b54 30%, #e91e63 50%, #f68c20 70%, #f68c20 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+.formSubtitle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.contactForm {
+  flex: 1;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.formGroup {
+  margin-bottom: 16px;
+}
+
+.formLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-white);
+  font-weight: 500;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.icon {
+  font-size: 1.1rem;
+}
+
+.formInput,
+.formTextarea {
+  width: 85%;
+  max-width: 500px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.4);
+  color: var(--color-white);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.formInput:focus,
+.formTextarea:focus {
+  outline: none;
+  border-color: var(--color-purple);
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 0 3px rgba(121, 27, 84, 0.2);
+}
+
+.formInput::placeholder,
+.formTextarea::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.formTextarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.submitButton {
+  width: 85%;
+  max-width: 500px;
+  margin-top: 12px;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  background: linear-gradient(180deg, var(--color-purple) 0%, var(--color-orange) 100%) !important;
+  border: none !important;
+  color: white !important;
+  transition: all 0.3s ease;
+}
+
+.submitButton:hover {
+  background: linear-gradient(180deg, var(--color-orange) 0%, var(--color-purple) 100%) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(121, 27, 84, 0.4);
+}
+
+/* Office Information Section */
+.officeInfoSection {
+  padding: 24px 0;
+  background: linear-gradient(135deg, #000000 0%, #454545 50%, #000000 100%);
+  margin-top: 24px;
+  position: relative;
+  border-radius: 24px;
+}
+
+.officeInfoSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(180deg, 
+    var(--color-black) 0%, 
+    rgba(0, 0, 0, 0.8) 40%, 
+    rgba(0, 0, 0, 0.4) 70%, 
+    transparent 100%
+  );
+  pointer-events: none;
+  filter: blur(1px);
+  z-index: 1;
+}
+
+.officeInfoSection::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(180deg, 
+    transparent 0%, 
+    rgba(69, 69, 69, 0.3) 30%, 
+    rgba(69, 69, 69, 0.7) 60%, 
+    var(--color-grey) 100%
+  );
+  pointer-events: none;
+  filter: blur(1px);
+  z-index: 1;
+}
+
+.officeInfoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.officeCard {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.officeContent {
+  padding: 16px 18px 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.officeCard:hover {
+  background: rgba(0, 0, 0, 0.6);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.officeTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--color-white);
+  margin: 0 0 10px 0;
+  font-family: var(--font-secondary);
+}
+
+.officeDetail {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 6px 0;
+  line-height: 1.4;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.officeIcon {
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  margin-top: 4px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.officeImageWrap {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  z-index: 0;
+  opacity: 0.45;
+}
+
+.officeImageWrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(0, 0, 0, 0.3), transparent 55%),
+              linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.95));
+}
+
+.officeCard:hover .officeImageWrap {
+  opacity: 0.9;
+}
+
+@media (max-width: 1024px) {
+  .officeInfoGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .officeInfoSection {
+    padding: 40px 0;
+  }
+
+  .officeInfoGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .officeCard {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .contactModal {
+    grid-template-columns: 1fr;
+    max-width: 800px;
+  }
+
+  .leftSection {
+    min-height: 300px;
+  }
+
+  .imageOverlay {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contactPage {
+    padding: 20px 10px;
+  }
+
+  .contactModal {
+    border-radius: 20px;
+  }
+
+  .rightSection {
+    padding: 30px 20px;
+  }
+
+  .formTitle {
+    font-size: 2rem;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+
+  .brandName {
+    font-size: 2rem;
+  }
 }

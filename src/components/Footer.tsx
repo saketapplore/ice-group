@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Logo from './Logo';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -6,8 +7,8 @@ export default function Footer() {
         <footer className={styles.footer}>
             <div className={`container ${styles.footerContainer}`}>
                 <div className={styles.column}>
-                    <Link href="/" className={styles.logo}>
-                        ICE<span className="text-gradient">Group</span>
+                    <Link href="/" className={styles.logoLink}>
+                        <Logo variant="default" />
                     </Link>
                     <p className={styles.description}>
                         Innovative Xperiences. Creating unforgettable corporate events with precision and passion.
@@ -30,9 +31,16 @@ export default function Footer() {
 
                 <div className={styles.column}>
                     <h3>Get in Touch</h3>
-                    <p>info@icegroupOffset.com</p>
-                    <p>+1 (555) 000-0000</p>
-                    <p>Corporate Plaza, Suite 100<br />Metropolis, NY</p>
+                    <p>info@icegroupindia.com</p>
+                    <p>011 - 4221 1111</p>
+                    <p>
+                        India Office: G-23 (GF), Aashirwad Commercial Complex, Green Park,<br />
+                        New Delhi - 110016, INDIA
+                    </p>
+                    <p>
+                        UAE Office: BUILDING A1 DUBAI DIGITAL PARK, DUBAI SILICON OASIS,<br />
+                        DUBAI, UNITED ARAB EMIRATES P.O.Box 342001
+                    </p>
                 </div>
             </div>
             <div className={styles.copyright}>

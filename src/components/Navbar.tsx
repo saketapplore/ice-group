@@ -1,13 +1,14 @@
 import Link from 'next/link';
 import Button from './Button';
+import Logo from './Logo';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
     return (
         <nav className={styles.navbar}>
             <div className={`container ${styles.navContainer}`}>
-                <Link href="/" className={styles.logo}>
-                    ICE<span className="text-gradient">Group</span>
+                <Link href="/" className={styles.logoLink}>
+                    <Logo variant="dark" />
                 </Link>
                 <div className={styles.links}>
                     <Link href="/" className={styles.link}>Home</Link>

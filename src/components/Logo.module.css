@@ -1,0 +1,188 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+  font-family: var(--font-primary);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.icePart {
+  display: flex;
+  align-items: baseline;
+  font-size: 2.2rem;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.letterI {
+  position: relative;
+  color: var(--color-white);
+  display: inline-block;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1em;
+}
+
+.dot {
+  position: absolute;
+  top: -0.45em;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0.35em;
+  height: 0.35em;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-orange) 0%, var(--color-pink) 50%, var(--color-purple) 100%);
+  display: block;
+  z-index: 1;
+}
+
+.letterC {
+  color: var(--color-white);
+  font-weight: 700;
+  position: relative;
+}
+
+.letterE {
+  position: relative;
+  display: inline-block;
+  font-weight: 700;
+}
+
+.letterEice {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(to right, var(--color-purple) 0%, var(--color-pink) 50%, var(--color-orange) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.letterEice::after {
+  content: '';
+  position: absolute;
+  left: 0.2em;
+  right: 0.08em;
+  top: 50%;
+  height: 0.15em;
+  background: var(--color-black);
+  transform: translateY(-50%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* For dark backgrounds (navbar), use black for cut-through */
+.dark .letterEice::after {
+  background: var(--color-black);
+}
+
+.tagline {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.08em;
+  font-size: 0.45rem;
+  line-height: 1.2;
+  font-weight: 400;
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
+  color: var(--color-white);
+}
+
+.innovative {
+  display: flex;
+  align-items: baseline;
+  line-height: 1;
+}
+
+.letterIGradient {
+  background: linear-gradient(180deg, var(--color-purple) 0%, var(--color-pink) 50%, var(--color-orange) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  font-weight: 400;
+}
+
+.innovativeRest {
+  color: var(--color-white);
+  font-weight: 400;
+}
+
+.experiences {
+  display: flex;
+  align-items: baseline;
+  line-height: 1;
+}
+
+.experiences .letterE {
+  color: var(--color-white);
+  font-weight: 400;
+  position: relative;
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: var(--color-white);
+  background-clip: unset;
+}
+
+.experiences .letterE::after {
+  display: none;
+}
+
+.letterX {
+  color: var(--color-pink);
+  display: inline-block;
+  font-weight: 400;
+}
+
+.experiencesRest {
+  color: var(--color-white);
+  font-weight: 400;
+}
+
+.compact .tagline {
+  display: none;
+}
+
+/* Dark variant for use on dark backgrounds (like navbar) - all white knockout */
+.dark .letterI,
+.dark .letterC {
+  color: var(--color-white);
+}
+
+.dark .letterEice {
+  background: linear-gradient(to right, var(--color-purple) 0%, var(--color-pink) 50%, var(--color-orange) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark .dot {
+  background: linear-gradient(135deg, var(--color-orange) 0%, var(--color-pink) 50%, var(--color-purple) 100%);
+}
+
+.dark .tagline {
+  display: flex;
+}
+
+
+.dark .innovativeRest,
+.dark .experiencesRest {
+  color: var(--color-white);
+}
+
+.dark .letterX {
+  color: var(--color-pink);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .icePart {
+    font-size: 1.8rem;
+  }
+  
+  .tagline {
+    font-size: 0.4rem;
+  }
+}

@@ -2,8 +2,7 @@
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.15));
-    backdrop-filter: blur(12px);
+    background: var(--bg-darker);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     padding: 0.6rem 0;
 }
@@ -14,12 +13,9 @@
     align-items: center;
 }
 
-.logo {
-    font-family: var(--font-secondary);
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    color: var(--text-light);
+.logoLink {
+    display: inline-block;
+    text-decoration: none;
     text-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
 }
 

@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import AnimateOnScroll from "@/components/AnimateOnScroll";
 
 const placeholders = [
   {
@@ -45,12 +48,14 @@ export default function GalleryPage() {
   return (
     <div className="container">
       <section style={{ padding: "60px 0" }}>
-        <h1 className="text-gradient" style={{ marginBottom: "20px" }}>
-          Event Gallery
-        </h1>
-        <p style={{ color: "#ccc", marginBottom: "40px" }}>
-          Snapshots from our recent world-class events.
-        </p>
+        <AnimateOnScroll animation="fadeInUp" delay={0.1}>
+          <h1 className="text-gradient" style={{ marginBottom: "20px" }}>
+            Event Gallery
+          </h1>
+          <p style={{ color: "#ccc", marginBottom: "40px" }}>
+            Snapshots from our recent world-class events.
+          </p>
+        </AnimateOnScroll>
 
         <div
           style={{
@@ -59,19 +64,29 @@ export default function GalleryPage() {
             gap: "20px",
           }}
         >
-          {images.map((image) => (
-            <figure
-              key={image.id}
-              style={{
-                position: "relative",
-                height: "250px",
-                borderRadius: "12px",
-                overflow: "hidden",
-                background: "#111",
-                border: "1px solid #222",
-                boxShadow: "0 10px 30px rgba(0,0,0,0.2)",
-              }}
-            >
+          {images.map((image, index) => (
+            <AnimateOnScroll key={image.id} animation="scaleIn" delay={0.1 + index * 0.08}>
+              <figure
+                style={{
+                  position: "relative",
+                  height: "250px",
+                  borderRadius: "12px",
+                  overflow: "hidden",
+                  background: "#111",
+                  border: "1px solid #222",
+                  boxShadow: "0 10px 30px rgba(0,0,0,0.2)",
+                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                  cursor: "pointer",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-8px) scale(1.02)";
+                  e.currentTarget.style.boxShadow = "0 20px 40px rgba(0,0,0,0.4)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0) scale(1)";
+                  e.currentTarget.style.boxShadow = "0 10px 30px rgba(0,0,0,0.2)";
+                }}
+              >
               <Image
                 src={image.src}
                 alt={image.alt}
@@ -97,6 +112,7 @@ export default function GalleryPage() {
                 {image.caption}
               </figcaption>
             </figure>
+            </AnimateOnScroll>
           ))}
         </div>
       </section>

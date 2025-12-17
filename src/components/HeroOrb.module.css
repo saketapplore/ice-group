@@ -16,38 +16,42 @@
   border-color: transparent;
   box-shadow: 0 22px 65px rgba(0, 0, 0, 0.8);
   filter: saturate(1.1);
-  mix-blend-mode: screen;
-  background: radial-gradient(circle at 30% 10%, rgba(246, 140, 32, 0.3), transparent 65%);
+  mix-blend-mode: normal;
 }
 
 .ring1 {
   inset: 6%;
-  border-image: radial-gradient(circle at 30% 0%, rgba(246, 140, 32, 0.9), rgba(246, 140, 32, 0.0)) 1;
+  border-image: radial-gradient(circle at 30% 0%, #f68c20, transparent) 1;
   animation: spinRing1 32s linear infinite;
+  box-shadow: 0 0 30px rgba(246, 140, 32, 0.5);
 }
 
 .ring2 {
   inset: 12%;
-  border-image: radial-gradient(circle at 0% 50%, rgba(229, 62, 48, 0.9), rgba(229, 62, 48, 0.0)) 1;
+  border-image: radial-gradient(circle at 0% 50%, #e53e30, transparent) 1;
   animation: spinRing2 24s linear infinite reverse;
+  box-shadow: 0 0 35px rgba(229, 62, 48, 0.5);
 }
 
 .ring3 {
   inset: 18%;
-  border-image: radial-gradient(circle at 70% 10%, rgba(121, 27, 84, 0.95), rgba(121, 27, 84, 0.0)) 1;
+  border-image: radial-gradient(circle at 70% 10%, #791b54, transparent) 1;
   animation: spinRing3 40s linear infinite;
+  box-shadow: 0 0 30px rgba(121, 27, 84, 0.5);
 }
 
 .ring4 {
   inset: 24%;
-  border-image: radial-gradient(circle at 10% 80%, rgba(246, 140, 32, 0.85), rgba(246, 140, 32, 0.0)) 1;
+  border-image: radial-gradient(circle at 10% 80%, #454545, transparent) 1;
   animation: spinRing4 28s linear infinite reverse;
+  box-shadow: 0 0 30px rgba(69, 69, 69, 0.5);
 }
 
 .ring5 {
   inset: 30%;
-  border-image: radial-gradient(circle at 50% 50%, rgba(121, 27, 84, 0.9), rgba(121, 27, 84, 0.0)) 1;
+  border-image: radial-gradient(circle at 50% 50%, #ffffff, transparent) 1;
   animation: spinRing5 52s linear infinite;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
 }
 
 @keyframes spinRing1 {
