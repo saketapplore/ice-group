@@ -26,10 +26,69 @@
     text-decoration: none;
 }
 
+.logoLink img {
+    width: 122px !important;
+    height: 41px !important;
+}
+
 .description {
     color: rgba(255, 255, 255, 0.8);
     line-height: 1.6;
     max-width: 300px;
+    margin-bottom: 30px;
+}
+
+.stayUpdatedSection {
+    margin-top: 30px;
+}
+
+.stayUpdatedTitle {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: var(--color-white);
+}
+
+.stayUpdatedDescription {
+    margin: 8px 0 14px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.newsletterForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+}
+
+.emailInput {
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    font-size: 0.9rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.emailInput:focus {
+    border-color: var(--color-purple);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 3px rgba(121, 27, 84, 0.2);
+}
+
+.newsletterForm button {
+    background: linear-gradient(135deg, var(--color-purple) 0%, var(--color-orange) 100%) !important;
+    border: none !important;
+    color: var(--color-white) !important;
+}
+
+.newsletterForm button:hover {
+    background: linear-gradient(135deg, var(--color-purple) 0%, var(--color-orange) 100%) !important;
+    box-shadow: 0 8px 24px rgba(121, 27, 84, 0.4) !important;
 }
 
 .column a,
@@ -44,6 +103,79 @@
 
 .column a:hover {
     color: var(--color-orange);
+}
+
+.footerOfficesGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.footerOfficeSection {
+    margin-bottom: 0;
+}
+
+.footerOfficeHeader {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.footerIcon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    display: inline-block;
+    font-size: 0.9rem;
+}
+
+.footerOfficeTitle {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--color-white);
+}
+
+.footerAddress {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 0 8px 22px;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.footerContactItem {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+    margin-left: 22px;
+    text-align: left;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+
+.footerContactLabel {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    margin-right: 4px;
+    white-space: nowrap;
+}
+
+.footerContactLink {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+    white-space: nowrap;
+}
+
+.footerContactLink:hover {
+    color: var(--color-orange);
+    text-decoration: underline;
 }
 
 .copyright {
@@ -63,5 +195,10 @@
 
     .description {
         margin: 0 auto;
+    }
+
+    .footerOfficesGrid {
+        grid-template-columns: 1fr;
+        gap: 24px;
     }
 }

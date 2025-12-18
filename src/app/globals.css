@@ -140,6 +140,10 @@ p {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   display: inline-block;
 }
 
@@ -196,6 +200,19 @@ a:hover {
 /* Smooth image loading */
 img {
   transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Hide Next.js portal elements that may interfere with layout */
+nextjs-portal,
+[nextjs-portal] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
 }
 
 /* Webflow-style smooth animations */

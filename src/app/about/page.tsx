@@ -16,16 +16,24 @@ export default function AboutPage() {
           </p>
         </AnimateOnScroll>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '40px', marginTop: '40px', alignItems: 'center' }}>
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: '1.2fr 1fr', 
+          gap: '40px', 
+          marginTop: '40px', 
+          alignItems: 'center',
+          background: 'linear-gradient(135deg, rgba(69, 69, 69, 0.3) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(69, 69, 69, 0.3) 100%)',
+          padding: '40px',
+          borderRadius: '16px',
+          border: '1px solid rgba(255, 255, 255, 0.05)'
+        }}>
           <AnimateOnScroll animation="fadeInLeft" delay={0.2}>
             <div>
-              <h2 style={{ color: 'white', marginBottom: '20px' }}>Our Story</h2>
               <p style={{ marginBottom: '20px' }}>
-                Founded on the belief that every event should tell a story, we started as a small boutique agency and have grown into a global powerhouse.
-                Our team consists of creative strategists, logistical wizards, and technical experts who work in harmony to deliver perfection.
+                iCE Group India; a group that has stood for excellence, brilliance and distinction since its inception. June 1, 2010, the day that saw the birth of the group that was to go on to create a revolution in the travel, tourism, events, weddings and exceptional expressions and impressions domain. Ever since, the company has grown leaps and bounds and today has a rich legacy of experience, expertise, skill, competence, and exposure garnered in the decade and plus one year of its operations.
               </p>
               <p>
-                We believe in the power of face-to-face connection in an increasingly digital world.
+                Mr. Mohit Khanna is the company&apos;s founder director and CEO and Ms. Disha Shah who joined the company in the year 2015 is the COO and director.
               </p>
             </div>
           </AnimateOnScroll>
@@ -42,24 +50,58 @@ export default function AboutPage() {
           </AnimateOnScroll>
         </div>
 
-        <div style={{ marginTop: '50px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px' }}>
+        <div style={{ marginTop: '50px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
           <AnimateOnScroll animation="fadeInUp" delay={0.2}>
-            <div style={{ background: 'var(--color-grey)', padding: '30px', borderRadius: '20px' }}>
-              <h2 style={{ color: 'white', marginBottom: '20px' }}>Our Vision</h2>
-              <p style={{ marginBottom: '20px' }}>
-                To be the world&apos;s most trusted partner for transformative corporate experiences.
-              </p>
-              <Link href="/contact">
-                <Button variant="primary">Work With Us</Button>
-              </Link>
+            <div style={{ background: 'linear-gradient(135deg, rgba(69, 69, 69, 0.8) 0%, rgba(0, 0, 0, 0.9) 100%)', padding: '20px', borderRadius: '12px', minHeight: '180px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div>
+                <h2 className="text-gradient" style={{ marginBottom: '12px', fontSize: '1.5rem' }}>Mission</h2>
+                <p style={{ marginBottom: '0', fontSize: '0.95rem', lineHeight: '1.5', color: 'white' }}>
+                  To provide innovative, effective and pioneering resolutions to our associates which aim at furthering their reach and growing their businesses.
+                </p>
+              </div>
             </div>
           </AnimateOnScroll>
           <AnimateOnScroll animation="fadeInUp" delay={0.3}>
-            <div style={{ background: 'var(--color-grey)', padding: '30px', borderRadius: '20px', border: '1px dashed #333' }}>
-              <h3 style={{ color: 'white', marginBottom: '12px' }}>Global Footprint</h3>
-              <p style={{ color: '#bbb' }}>
-                From regional activations to international congresses, our teams operate across key markets in the Middle East and beyond.
-              </p>
+            <div style={{ background: 'linear-gradient(135deg, rgba(69, 69, 69, 0.8) 0%, rgba(0, 0, 0, 0.9) 100%)', padding: '20px', borderRadius: '12px', minHeight: '180px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div>
+                <h3 className="text-gradient" style={{ marginBottom: '12px', fontSize: '1.5rem' }}>Vision</h3>
+                <p style={{ color: 'white', fontSize: '0.95rem', lineHeight: '1.5', marginBottom: '0' }}>
+                  Forming striking connections with our patrons by creating impressions and experiences a global agency par excellence.
+                </p>
+              </div>
+            </div>
+          </AnimateOnScroll>
+        </div>
+
+        <div style={{ 
+          marginTop: '50px',
+          background: 'linear-gradient(135deg, rgba(69, 69, 69, 0.3) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(69, 69, 69, 0.3) 100%)',
+          padding: '40px',
+          borderRadius: '16px',
+          border: '1px solid rgba(255, 255, 255, 0.05)'
+        }}>
+          <AnimateOnScroll animation="fadeInUp" delay={0.4}>
+            <div>
+              <h2 style={{ color: 'white', marginBottom: '24px', fontSize: '2rem' }}>
+                <span className="text-gradient">We Are Ingenious We Are Team ice</span>
+              </h2>
+              <div style={{ color: '#ccc', lineHeight: '1.8', fontSize: '1rem' }}>
+                <p style={{ marginBottom: '20px' }}>
+                  We are on a constant quest to deliver superlative impressions and experiences for you. Travel is in our DNA and there is perhaps no corner of the world where we haven&apos;t crafted memories for our patrons. For us it is always time for the next adventure.
+                </p>
+                <p style={{ marginBottom: '20px' }}>
+                  Luxe, luxury and opulence have captivated us ever since and with Wedding Knots, we have been able to translate our fascination into work and help make the most memorable even more extraordinary for the bride, groom and everyone attending the wedding.
+                </p>
+                <p style={{ marginBottom: '20px' }}>
+                  Travel and events go hand in hand and it was only imperative for us that this was the next progression for us. iCE Events is now a name to reckon with in the events space and how. Large formats bespoke corporate events on all turfs of the globe and in the quest of exploring beyond.
+                </p>
+                <p style={{ marginBottom: '20px' }}>
+                  During the gloomy times of the pandemic, we became the beacon of hope that connected by transcending physical boundaries. iCE CONNECT offers state of the art virtual platforms with integration and interactions, animations, VFX and immersive experiences in the virtual domain.
+                </p>
+                <p style={{ marginBottom: '0', fontWeight: '600', color: 'var(--color-white)' }}>
+                  STAY TUNED TO STAY ABREAST OF LATEST INNOVATIONS AND REVOLUTIONS, AFTER ALL; WE ARE INGENIOUS. WE ARE TEAM ICE!
+                </p>
+              </div>
             </div>
           </AnimateOnScroll>
         </div>

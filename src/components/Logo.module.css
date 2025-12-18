@@ -1,16 +1,24 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.8em;
-  font-family: var(--font-primary);
-  font-weight: 700;
-  line-height: 1;
+  height: 100%;
+}
+
+.logoImage {
+  height: auto;
+  width: auto;
+  object-fit: contain;
+}
+
+.dark .logoImage {
+  height: 52px;
+  width: auto;
 }
 
 .icePart {
   display: flex;
   align-items: baseline;
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   letter-spacing: -0.02em;
   font-weight: 700;
   line-height: 1;
@@ -82,7 +90,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 0.08em;
-  font-size: 0.45rem;
+  font-size: 0.5rem;
   line-height: 1.2;
   font-weight: 400;
   text-transform: lowercase;
@@ -116,22 +124,12 @@
   line-height: 1;
 }
 
-.experiences .letterE {
-  color: var(--color-white);
-  font-weight: 400;
-  position: relative;
-  background: none;
-  -webkit-background-clip: unset;
-  -webkit-text-fill-color: var(--color-white);
-  background-clip: unset;
-}
-
-.experiences .letterE::after {
-  display: none;
-}
 
 .letterX {
-  color: var(--color-pink);
+  background: linear-gradient(180deg, var(--color-purple) 0%, var(--color-pink) 50%, var(--color-orange) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   display: inline-block;
   font-weight: 400;
 }
@@ -173,7 +171,10 @@
 }
 
 .dark .letterX {
-  color: var(--color-pink);
+  background: linear-gradient(180deg, var(--color-purple) 0%, var(--color-pink) 50%, var(--color-orange) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Responsive adjustments */

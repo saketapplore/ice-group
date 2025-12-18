@@ -13,7 +13,13 @@ export default function Navbar() {
                 <div className={styles.links}>
                     <Link href="/" className={styles.link}>Home</Link>
                     <Link href="/about" className={styles.link}>About Us</Link>
-                    <Link href="/services" className={styles.link}>Services</Link>
+                    <div className={styles.dropdown}>
+                        <span className={styles.link}>Services</span>
+                        <div className={styles.dropdownMenu}>
+                            <Link href="/services/ice-events" className={styles.dropdownItem}>iCE Events</Link>
+                            <Link href="/services/mice" className={styles.dropdownItem}>MICE</Link>
+                        </div>
+                    </div>
                     <Link href="/gallery" className={styles.link}>Gallery</Link>
                     <Link href="/newsletter" className={styles.link}>Newsletter</Link>
                     <Link href="/contact" className={styles.link}>Contact Us</Link>

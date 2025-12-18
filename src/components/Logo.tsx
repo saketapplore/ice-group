@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import styles from './Logo.module.css';
 
 interface LogoProps {
@@ -9,27 +10,14 @@ interface LogoProps {
 const Logo: React.FC<LogoProps> = ({ variant = 'default', className = '' }) => {
   return (
     <div className={`${styles.logo} ${variant === 'compact' ? styles.compact : ''} ${variant === 'dark' ? styles.dark : ''} ${className}`}>
-      <div className={styles.icePart}>
-        <span className={styles.letterI}>
-          <span className={styles.dot}></span>
-          i
-        </span>
-        <span className={styles.letterC}>c</span>
-        <span className={`${styles.letterE} ${styles.letterEice}`}>e</span>
-      </div>
-      {variant !== 'compact' && (
-        <div className={styles.tagline}>
-          <div className={styles.innovative}>
-            <span className={styles.letterIGradient}>i</span>
-            <span className={styles.innovativeRest}>nnovative</span>
-          </div>
-          <div className={styles.experiences}>
-            <span className={styles.letterE}>e</span>
-            <span className={styles.letterX}>x</span>
-            <span className={styles.experiencesRest}>periences</span>
-          </div>
-        </div>
-      )}
+      <Image
+        src="/images/logo.png"
+        alt="ICE Group Logo"
+        width={variant === 'compact' ? 120 : variant === 'dark' ? 125 : 180}
+        height={variant === 'compact' ? 40 : variant === 'dark' ? 52 : 60}
+        className={styles.logoImage}
+        priority
+      />
     </div>
   );
 };

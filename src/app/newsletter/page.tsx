@@ -35,41 +35,6 @@ const newsletters = [
 export default function NewsletterPage() {
     return (
         <div className={`container ${styles.newsletterPage}`}>
-            {/* Stay Updated hero section */}
-            <section className={styles.stayUpdatedSection}>
-                <AnimateOnScroll animation="scaleIn" delay={0.1}>
-                    <div className={styles.stayUpdatedContent}>
-                        <div className={styles.stayUpdatedText}>
-                            <h1 className={`text-gradient ${styles.stayUpdatedTitle}`}>Stay Updated</h1>
-                            <p className={styles.stayUpdatedDescription}>
-                                Subscribe for curated insights on events, conferences, and MICE travel – no spam, only what busy teams need.
-                            </p>
-
-                            <form className={styles.newsletterForm}>
-                                <input
-                                    type="email"
-                                    placeholder="Enter your work email"
-                                    className={styles.emailInput}
-                                />
-                                <div>
-                                    <Button variant="primary" style={{ padding: '10px 20px', fontSize: '0.9rem' }}>Subscribe Now</Button>
-                                </div>
-                            </form>
-                        </div>
-
-                        <div className={styles.stayUpdatedImage}>
-                            <Image
-                                src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80"
-                                alt="Audience at a corporate event taking notes"
-                                fill
-                                sizes="(min-width: 1024px) 40vw, 100vw"
-                                style={{ objectFit: 'cover' }}
-                            />
-                        </div>
-                    </div>
-                </AnimateOnScroll>
-            </section>
-
             {/* Recent newsletters */}
             <section className={styles.newslettersSection}>
                 <AnimateOnScroll animation="fadeInUp" delay={0.1}>
