@@ -12,7 +12,7 @@ export default function ContactPage() {
             <div className="container">
                 <div className={styles.contactLayout}>
                     {/* Left Section - Contact Information Card */}
-                    <AnimateOnScroll animation="fadeInLeft" delay={0.1}>
+                    <AnimateOnScroll animation="fadeInUp" delay={0.1}>
                         <div className={styles.contactInfoCard}>
                             <h2 className={styles.contactInfoTitle}>Get in touch</h2>
                             
@@ -38,56 +38,29 @@ export default function ContactPage() {
                                 </div>
                             </div>
 
-                            {/* UAE Office */}
-                            <div className={styles.contactInfoSection}>
-                                <div className={styles.officeHeader}>
-                                    <Image src="/location-pin.svg" alt="Location" width={20} height={20} className={styles.officeIcon} />
-                                    <h3 className={styles.officeTitle}>UAE Office :</h3>
-                                </div>
-                                <p className={styles.contactInfoDetail}>
-                                    BUILDING A1 DUBAI DIGITAL PARK DUBAI SILICON OASIS<br />
-                                    DUBAI, UNITED ARAB EMIRATES P.O.Box 342001
-                                </p>
-                                <div className={styles.contactInfoItem}>
-                                    <Image src="/phone-icon.svg" alt="Phone" width={18} height={18} className={styles.contactIcon} />
-                                    <span className={styles.contactLabel}>Call :</span>
-                                    <a href="tel:01142211111" className={styles.contactInfoLink}>011 - 4221 1111</a>
-                                </div>
-                                <div className={styles.contactInfoItem}>
-                                    <span className={styles.contactIcon}>✉</span>
-                                    <span className={styles.contactLabel}>Email :</span>
-                                    <a href="mailto:mohit.khanna@icegroupindia.com" className={styles.contactInfoLink}>mohit.khanna@icegroupindia.com</a>
-                                </div>
-                            </div>
-
-                            {/* Europe Office */}
-                            <div className={styles.contactInfoSection}>
-                                <div className={styles.officeHeader}>
-                                    <Image src="/location-pin.svg" alt="Location" width={20} height={20} className={styles.officeIcon} />
-                                    <h3 className={styles.officeTitle}>Europe Office :</h3>
-                                </div>
-                                <p className={styles.contactInfoDetail}>
-                                    Opening Shortly
-                                </p>
-                            </div>
-
                             {/* Follow Us */}
                             <div className={styles.contactInfoSection}>
                                 <div className={styles.followUsHeader}>
                                     <h3 className={styles.followUsTitle}>Follow us on :</h3>
                                 </div>
                                 <div className={styles.socialIcons}>
-                                    <a href="#" className={styles.socialIcon} aria-label="Facebook" style={{ fontFamily: 'Arial, sans-serif', fontWeight: 'bold' }}>f</a>
-                                    <a href="#" className={styles.socialIcon} aria-label="Twitter" style={{ fontSize: '1.3rem' }}>🐦</a>
-                                    <a href="#" className={styles.socialIcon} aria-label="Instagram" style={{ fontSize: '1.3rem' }}>📷</a>
-                                    <a href="#" className={styles.socialIcon} aria-label="LinkedIn" style={{ fontFamily: 'Arial, sans-serif', fontWeight: 'bold' }}>in</a>
+                                    <a href="https://www.facebook.com/ICEGROUPINDIA/" target="_blank" rel="noopener noreferrer" className={`${styles.socialIcon} ${styles.facebookIcon}`} aria-label="Facebook">
+                                        <Image src="/facebook-icon.svg" alt="Facebook" width={20} height={20} />
+                                    </a>
+                                    <a href="https://x.com/Travelmgmnt" target="_blank" rel="noopener noreferrer" className={`${styles.socialIcon} ${styles.twitterIcon}`} aria-label="Twitter">
+                                        <Image src="/twitter-icon.svg" alt="Twitter" width={20} height={20} />
+                                    </a>
+                                    <a href="https://www.instagram.com/icegroupindia/" target="_blank" rel="noopener noreferrer" className={`${styles.socialIcon} ${styles.instagramIcon}`} aria-label="Instagram">
+                                        <Image src="/instagram-icon.svg" alt="Instagram" width={20} height={20} />
+                                    </a>
+                                    <a href="https://www.linkedin.com/company/icegroup-india" target="_blank" rel="noopener noreferrer" className={`${styles.socialIcon} ${styles.linkedInIcon}`} aria-label="LinkedIn" style={{ fontFamily: 'Arial, sans-serif', fontWeight: 'bold' }}>in</a>
                                 </div>
                             </div>
                         </div>
                     </AnimateOnScroll>
 
                     {/* Right Section - Contact Form */}
-                    <AnimateOnScroll animation="fadeInRight" delay={0.2}>
+                    <AnimateOnScroll animation="fadeInUp" delay={0.2}>
                         <div className={styles.formSection}>
                             <form className={styles.contactForm}>
                                 <div className={styles.formRow}>

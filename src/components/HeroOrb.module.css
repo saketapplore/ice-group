@@ -19,20 +19,6 @@
   mix-blend-mode: normal;
 }
 
-.ring1 {
-  inset: 6%;
-  border-image: radial-gradient(circle at 30% 0%, #f68c20, transparent) 1;
-  animation: spinRing1 32s linear infinite;
-  box-shadow: 0 0 30px rgba(246, 140, 32, 0.5);
-}
-
-.ring2 {
-  inset: 12%;
-  border-image: radial-gradient(circle at 0% 50%, #e53e30, transparent) 1;
-  animation: spinRing2 24s linear infinite reverse;
-  box-shadow: 0 0 35px rgba(229, 62, 48, 0.5);
-}
-
 .ring3 {
   inset: 18%;
   border-image: radial-gradient(circle at 70% 10%, #791b54, transparent) 1;
@@ -52,24 +38,6 @@
   border-image: radial-gradient(circle at 50% 50%, #ffffff, transparent) 1;
   animation: spinRing5 52s linear infinite;
   box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
-}
-
-@keyframes spinRing1 {
-  0% {
-    transform: rotateX(52deg) rotateY(-18deg) rotateZ(0deg);
-  }
-  100% {
-    transform: rotateX(52deg) rotateY(-18deg) rotateZ(360deg);
-  }
-}
-
-@keyframes spinRing2 {
-  0% {
-    transform: rotateX(68deg) rotateY(24deg) rotateZ(0deg);
-  }
-  100% {
-    transform: rotateX(68deg) rotateY(24deg) rotateZ(360deg);
-  }
 }
 
 @keyframes spinRing3 {

@@ -27,7 +27,7 @@ export default function AboutPage() {
           borderRadius: '16px',
           border: '1px solid rgba(255, 255, 255, 0.05)'
         }}>
-          <AnimateOnScroll animation="fadeInLeft" delay={0.2}>
+          <AnimateOnScroll animation="fadeInUp" delay={0.2}>
             <div>
               <p style={{ marginBottom: '20px' }}>
                 iCE Group India; a group that has stood for excellence, brilliance and distinction since its inception. June 1, 2010, the day that saw the birth of the group that was to go on to create a revolution in the travel, tourism, events, weddings and exceptional expressions and impressions domain. Ever since, the company has grown leaps and bounds and today has a rich legacy of experience, expertise, skill, competence, and exposure garnered in the decade and plus one year of its operations.
@@ -37,7 +37,7 @@ export default function AboutPage() {
               </p>
             </div>
           </AnimateOnScroll>
-          <AnimateOnScroll animation="fadeInRight" delay={0.3}>
+          <AnimateOnScroll animation="fadeInUp" delay={0.3}>
             <div style={{ position: 'relative', height: '260px', borderRadius: '20px', overflow: 'hidden', border: '1px solid #222' }}>
               <Image
                 src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80"

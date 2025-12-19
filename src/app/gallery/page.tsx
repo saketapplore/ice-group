@@ -14,40 +14,56 @@ const galleryImages = webpImageNumbers.map((num, index) => ({
   caption: "Event Gallery",
 }));
 
-// Split images into 5 groups
-const imagesPerCarousel = Math.ceil(galleryImages.length / 5);
-const carouselGroups: typeof galleryImages[] = [];
-for (let i = 0; i < 5; i++) {
-  carouselGroups.push(galleryImages.slice(i * imagesPerCarousel, (i + 1) * imagesPerCarousel));
-}
+// Shuffle and distribute images across 5 carousels using round-robin
+// This ensures all images are used and distributed evenly
+const carouselGroups: typeof galleryImages[] = [[], [], [], [], []];
+galleryImages.forEach((image, index) => {
+  carouselGroups[index % 5].push(image);
+});
 
 function GalleryCarousel({ images, carouselIndex }: { images: typeof galleryImages; carouselIndex: number }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentSetIndex, setCurrentSetIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const [isFlipping, setIsFlipping] = useState(false);
+
+  // Group images into sets of 5, ensuring each set has 5 different images
+  const imagesPerSet = 5;
+  const imageSets: typeof galleryImages[] = [];
+  
+  // Create sets of 5 different images
+  for (let i = 0; i < images.length; i += imagesPerSet) {
+    const set = images.slice(i, i + imagesPerSet);
+    // Only add sets that have at least 5 different images
+    if (set.length === imagesPerSet) {
+      imageSets.push(set);
+    }
+  }
+  
+  // If we have leftover images, create additional sets by cycling through
+  const remainingImages = images.length % imagesPerSet;
+  if (remainingImages > 0 && imageSets.length > 0) {
+    const lastSet = images.slice(-remainingImages);
+    // Fill the last set to 5 by taking from the beginning
+    const needed = imagesPerSet - remainingImages;
+    for (let i = 0; i < needed && i < images.length; i++) {
+      // Avoid duplicates by checking if image is already in the set
+      if (!lastSet.find(img => img.id === images[i].id)) {
+        lastSet.push(images[i]);
+      }
+    }
+    if (lastSet.length === imagesPerSet) {
+      imageSets.push(lastSet);
+    }
+  }
 
   useEffect(() => {
-    if (isPaused) return;
+    if (isPaused || imageSets.length === 0) return;
     const interval = setInterval(() => {
-      setIsFlipping(true);
-      setTimeout(() => {
-        setCurrentIndex((prev) => (prev + 1) % images.length);
-        setTimeout(() => {
-          setIsFlipping(false);
-        }, 100);
-      }, 600);
-    }, 3000);
+      setCurrentSetIndex((prev) => (prev + 1) % imageSets.length);
+    }, 2700); // Same 2.7 seconds as hero section
     return () => clearInterval(interval);
-  }, [images.length, isPaused]);
+  }, [imageSets.length, isPaused]);
 
-  const cardWidth = 300;
   const gap = 20;
-  const translateX = currentIndex * (cardWidth + gap);
-
-  // Duplicate images for seamless infinite loop - start from middle set
-  const duplicatedImages = [...images, ...images, ...images];
-  const startOffset = images.length;
-  const nextIndex = (currentIndex + 1) % images.length;
 
   return (
     <div 
@@ -55,97 +71,65 @@ function GalleryCarousel({ images, carouselIndex }: { images: typeof galleryImag
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <div style={{ overflow: "hidden", position: "relative", width: "100%" }}>
-        <div
-          style={{
-            display: "flex",
-            transition: isFlipping ? "none" : "transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)",
-            transform: `translateX(-${startOffset * (cardWidth + gap) + translateX}px)`,
-            gap: `${gap}px`,
-            width: "fit-content",
-          }}
-        >
-          {duplicatedImages.map((image, index) => {
-            const relativeIndex = index % images.length;
-            const isFirstVisible = index === startOffset + currentIndex;
-            const nextImage = images[nextIndex];
-            
-            return (
-              <div
-                key={`${image.id}-${index}`}
-                style={{
-                  position: "relative",
-                  width: `${cardWidth}px`,
-                  height: "250px",
-                  flexShrink: 0,
-                  borderRadius: "12px",
-                  overflow: "hidden",
-                  background: "#111",
-                  border: "1px solid #222",
-                  boxShadow: "0 10px 30px rgba(0,0,0,0.2)",
-                  cursor: "pointer",
-                  transformStyle: "preserve-3d",
-                  perspective: "1000px",
-                }}
-                onMouseEnter={(e) => {
-                  if (!isFlipping || !isFirstVisible) {
-                    e.currentTarget.style.transform = "translateY(-8px) scale(1.02)";
-                    e.currentTarget.style.boxShadow = "0 20px 40px rgba(0,0,0,0.4)";
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (!isFlipping || !isFirstVisible) {
-                    e.currentTarget.style.transform = "translateY(0) scale(1)";
-                    e.currentTarget.style.boxShadow = "0 10px 30px rgba(0,0,0,0.2)";
-                  }
-                }}
-              >
-                {/* Front face - current image */}
-                <div
-                  style={{
-                    position: "absolute",
-                    inset: 0,
-                    transform: isFirstVisible && isFlipping ? "rotateY(180deg)" : "rotateY(0deg)",
-                    transition: "transform 0.6s ease-in-out",
-                    backfaceVisibility: "hidden",
-                    WebkitBackfaceVisibility: "hidden",
-                  }}
-                >
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    sizes="300px"
-                    style={{ objectFit: "cover" }}
-                    priority={index >= startOffset && index < startOffset + 3}
-                  />
-                </div>
+      <div style={{ 
+        position: "relative", 
+        width: "100%",
+        height: "250px",
+        display: "flex",
+        gap: `${gap}px`,
+      }}>
+        {/* Always render 5 boxes for consistent layout */}
+        {[0, 1, 2, 3, 4].map((boxIndex) => {
+          const currentSet = imageSets[currentSetIndex] || [];
+          const image = currentSet[boxIndex];
+          
+          return (
+            <div
+              key={`box-${boxIndex}`}
+              style={{
+                position: "relative",
+                flex: "1 1 0",
+                minWidth: 0,
+                height: "250px",
+                borderRadius: "12px",
+                overflow: "hidden",
+                background: "#111",
+                border: "1px solid #222",
+                boxShadow: "0 10px 30px rgba(0,0,0,0.2)",
+              }}
+            >
+              {imageSets.map((imageSet, setIndex) => {
+                const setImage = imageSet[boxIndex];
+                if (!setImage) return null;
                 
-                {/* Back face - next image (only for first visible card) */}
-                {isFirstVisible && (
+                return (
                   <div
+                    key={`${setIndex}-${boxIndex}`}
                     style={{
                       position: "absolute",
-                      inset: 0,
-                      transform: isFlipping ? "rotateY(0deg)" : "rotateY(180deg)",
-                      transition: "transform 0.6s ease-in-out",
-                      backfaceVisibility: "hidden",
-                      WebkitBackfaceVisibility: "hidden",
+                      top: 0,
+                      left: 0,
+                      width: "100%",
+                      height: "100%",
+                      opacity: setIndex === currentSetIndex ? 1 : 0,
+                      transition: "opacity 1.2s ease-in-out",
+                      pointerEvents: setIndex === currentSetIndex ? "auto" : "none",
                     }}
                   >
                     <Image
-                      src={nextImage.src}
-                      alt={nextImage.alt}
+                      src={setImage.src}
+                      alt={setImage.alt}
                       fill
-                      sizes="300px"
+                      sizes="(max-width: 1200px) 20vw, 200px"
                       style={{ objectFit: "cover" }}
+                      priority={setIndex === currentSetIndex && boxIndex < 2}
                     />
                   </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
+                );
+              })}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
@@ -162,7 +146,7 @@ export default function GalleryPage() {
         <section style={{ padding: "60px 0" }}>
         <AnimateOnScroll animation="fadeInUp" delay={0.1}>
           <h1 className="text-gradient" style={{ marginBottom: "20px" }}>
-            Event Gallery
+            Gallery
           </h1>
           <p style={{ color: "#ccc", marginBottom: "40px" }}>
             Snapshots from our recent world-class events.

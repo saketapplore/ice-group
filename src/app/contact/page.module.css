@@ -75,16 +75,17 @@
 }
 
 .contactIcon {
-  width: 18px;
-  height: 18px;
-  flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    filter: brightness(0) invert(1);
 }
 
 .contactLabel {
   font-size: 0.95rem;
   font-weight: 600;
   color: white;
-  margin-right: 4px;
+  margin-right: 2px;
 }
 
 .followUsHeader {
@@ -126,26 +127,84 @@
 }
 
 .socialIcon {
-  width: 44px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.25);
-  border-radius: 50%;
-  font-size: 1.1rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-  color: rgba(0, 0, 0, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.socialIcon:hover {
-  background: rgba(255, 255, 255, 0.35);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+.socialIcon img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    transition: filter 0.3s ease;
+}
+
+.facebookIcon {
+    background: #1877f2;
+    color: #ffffff;
+    border-color: #1877f2;
+}
+
+.facebookIcon img {
+    filter: brightness(0) invert(1);
+}
+
+.facebookIcon:hover {
+    background: #166fe5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(24, 119, 242, 0.4);
+}
+
+.twitterIcon {
+    background: #000000;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+.twitterIcon img {
+    filter: brightness(0) invert(1);
+}
+
+.twitterIcon:hover {
+    background: #1a1a1a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.instagramIcon {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: #ffffff;
+    border-color: transparent;
+}
+
+.instagramIcon img {
+    filter: brightness(0) invert(1);
+}
+
+.instagramIcon:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220, 39, 67, 0.4);
+}
+
+.linkedInIcon {
+    background: #0077b5;
+    color: #ffffff;
+    border-color: #0077b5;
+}
+
+.linkedInIcon:hover {
+    background: #006399;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 119, 181, 0.4);
 }
 
 /* Right Section - Contact Form */
@@ -265,6 +324,7 @@
   background: linear-gradient(180deg, var(--color-orange) 0%, var(--color-purple) 100%) !important;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(121, 27, 84, 0.4);
+  color: #ffffff !important;
 }
 
 /* Responsive Design */

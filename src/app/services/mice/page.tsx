@@ -61,7 +61,7 @@ export default function MICEPage() {
           </AnimateOnScroll>
 
           <div className={styles.contentBox}>
-            <AnimateOnScroll animation="fadeInLeft" delay={0.2}>
+            <AnimateOnScroll animation="fadeInUp" delay={0.2}>
               <div className={styles.contentText}>
                 <p className={styles.contentParagraph}>
                   To travel is to live was the maxim that led to the establishment of the company's first vertical. Ever since, there has been no looking back. In its illustrious journey of the past 11 years, the company has managed travel, tours, journeys and experiences to all parts of the world with perfect aplomb. In our kitty, we have accumulated a vast and expansive kitty of extremely satisfied and gratified patrons. We have serviced big bigwigs across industries and geographies to the best of our ability; each time only ensuring customer delight.
@@ -71,7 +71,7 @@ export default function MICEPage() {
                 </p>
               </div>
             </AnimateOnScroll>
-            <AnimateOnScroll animation="fadeInRight" delay={0.3}>
+            <AnimateOnScroll animation="fadeInUp" delay={0.3}>
               <div className={styles.contentImage}>
                 <Image
                   src="https://images.unsplash.com/photo-1526779259212-939e64788e3c?auto=format&fit=crop&w=1200&q=80"

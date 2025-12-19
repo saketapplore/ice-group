@@ -5,7 +5,6 @@ import ServiceCard from '@/components/ServiceCard';
 import Button from '@/components/Button';
 import Image from "next/image";
 import Link from "next/link";
-import HeroOrb from "@/components/HeroOrb";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import styles from './page.module.css';
 
@@ -127,33 +126,26 @@ function TestimonialCarousel() {
           </div>
         ))}
       </div>
-      <div className={styles.testimonialNavigation}>
-        <button
-          className={styles.testimonialArrow}
-          onClick={() => setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
-          aria-label="Previous testimonial"
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-        <button
-          className={styles.testimonialArrow}
-          onClick={() => setCurrentIndex((prev) => (prev + 1) % testimonials.length)}
-          aria-label="Next testimonial"
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-      </div>
     </div>
   );
 }
 
 export default function Home() {
-  const heroVideo =
-    "https://cdn.coverr.co/videos/coverr-business-team-in-a-meeting-1574/1080p.mp4";
+  const [currentHeroImage, setCurrentHeroImage] = useState(0);
+  
+  const heroImages = [
+    "/images/decorated-banquet-hall-with-flowers.jpg",
+    "/images/hero1.jpg",
+    "/images/hero2.jpg",
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentHeroImage((prev) => (prev + 1) % heroImages.length);
+    }, 2700); // 2.7 seconds
+
+    return () => clearInterval(interval);
+  }, [heroImages.length]);
 
   const events = [
     {
@@ -226,10 +218,18 @@ export default function Home() {
   return (
     <main>
       <section className={styles.heroSection}>
+        <div className={styles.heroCarousel}>
+          {heroImages.map((image, index) => (
+            <div
+              key={index}
+              className={`${styles.heroCarouselImage} ${index === currentHeroImage ? styles.heroCarouselImageActive : ''}`}
+              style={{ backgroundImage: `url(${image})` }}
+            />
+          ))}
+        </div>
         <div className={`container ${styles.heroContent}`}>
           <div className={styles.heroInner}>
             <div className={styles.heroCopy}>
-              <div className={styles.heroBadge}>Events & MICE</div>
               <h1 className={styles.heroTitle}>Events that are as unique as you are</h1>
               <p className={styles.heroSubtitle}>
                 ICE Group crafts experiences that move people. From corporate events to global travel, we deliver comprehensive MICE solutions that connect audiences with ideas.
@@ -239,9 +239,6 @@ export default function Home() {
                   Plan your experience →
                 </Link>
               </div>
-            </div>
-            <div className={styles.heroVisual}>
-              <HeroOrb />
             </div>
           </div>
         </div>
@@ -391,7 +388,6 @@ export default function Home() {
                     sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 100vw"
                     style={{ objectFit: "cover" }}
                   />
-                  <span className={styles.eventStatus}>{event.status}</span>
                 </div>
                 <div className={styles.eventBody}>
                   <p className={styles.muted}>{event.date}</p>
@@ -449,19 +445,6 @@ export default function Home() {
           <div className={styles.introContent}>
             <div className={styles.introLayout}>
               <AnimateOnScroll animation="fadeInLeft" delay={0.1}>
-                <div className={styles.introImageBox}>
-                  <div className={styles.introImage}>
-                    <Image
-                      src="/images/11.webp"
-                      alt="MICE solutions and corporate events"
-                      fill
-                      sizes="(min-width: 1024px) 40vw, 100vw"
-                      style={{ objectFit: 'cover' }}
-                    />
-                  </div>
-                </div>
-              </AnimateOnScroll>
-              <AnimateOnScroll animation="fadeInUp" delay={0.2}>
                 <div>
                   <p className={styles.kicker}><span className="text-gradient">Welcome</span></p>
                   <h2>Experiences that move people and brands forward.</h2>
@@ -475,6 +458,19 @@ export default function Home() {
                     <Link href="/about" className={styles.learnMoreBox}>
                       Learn about our approach
                     </Link>
+                  </div>
+                </div>
+              </AnimateOnScroll>
+              <AnimateOnScroll animation="fadeInRight" delay={0.2}>
+                <div className={styles.introImageBox}>
+                  <div className={styles.introImage}>
+                    <Image
+                      src="/images/11.webp"
+                      alt="MICE solutions and corporate events"
+                      fill
+                      sizes="(min-width: 1024px) 40vw, 100vw"
+                      style={{ objectFit: 'cover' }}
+                    />
                   </div>
                 </div>
               </AnimateOnScroll>

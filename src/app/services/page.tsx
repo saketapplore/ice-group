@@ -74,7 +74,7 @@ export default function ServicesPage() {
     <div className={`container ${styles.servicesPage}`}>
       <section className={styles.servicesHeader}>
         <div className={styles.headerContent}>
-          <AnimateOnScroll animation="fadeInLeft" delay={0.1}>
+          <AnimateOnScroll animation="fadeInUp" delay={0.1}>
             <div className={styles.headerText}>
               <h1 className="text-gradient" style={{ marginBottom: '16px' }}>Our Services</h1>
               <p style={{ color: '#ccc', maxWidth: '560px' }}>
@@ -82,7 +82,7 @@ export default function ServicesPage() {
               </p>
             </div>
           </AnimateOnScroll>
-          <AnimateOnScroll animation="fadeInRight" delay={0.2}>
+          <AnimateOnScroll animation="fadeInUp" delay={0.2}>
             <div className={styles.headerImage}>
               <Image
                 src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80"
@@ -119,7 +119,7 @@ export default function ServicesPage() {
           ))}
         </div>
 
-        <AnimateOnScroll animation="scaleIn" delay={0.2}>
+        <AnimateOnScroll animation="fadeInUp" delay={0.2}>
           <div className={styles.ctaSection}>
             <h2 style={{ color: 'var(--color-white)', marginBottom: '20px' }}>Need a custom solution?</h2>
             <Link href="/contact">

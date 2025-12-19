@@ -17,6 +17,7 @@ export default function ServiceCard({ title, description, image }: ServiceProps)
                     fill
                     sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 100vw"
                     style={{ objectFit: 'cover' }}
+                    loading="lazy"
                 />
             </div>
             <div className={styles.body}>

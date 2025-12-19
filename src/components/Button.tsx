@@ -1,5 +1,6 @@
 "use strict";
 import React from "react";
+import styles from "./Button.module.css";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: "primary" | "secondary" | "outline";
@@ -12,10 +13,10 @@ const Button: React.FC<ButtonProps> = ({
     className = "",
     ...props
 }) => {
-    const baseStyles = "inline-flex items-center justify-center px-8 py-3 rounded-full font-semibold transition-all duration-300 ease-in-out transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-offset-2";
+    const baseStyles = "inline-flex items-center justify-center transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2";
 
     const variants = {
-        primary: "bg-[var(--gradient-main)] text-white hover:shadow-lg hover:shadow-red-500/30",
+        primary: `text-white ${styles.buttonPrimary}`,
         secondary: "bg-white text-[var(--color-purple)] hover:bg-gray-100 border border-transparent shadow-md",
         outline: "bg-transparent border-2 border-[var(--color-orange)] text-[var(--color-orange)] hover:bg-[var(--color-orange)] hover:text-white"
     };

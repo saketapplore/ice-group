@@ -1,0 +1,25 @@
+.buttonPrimary {
+  background: linear-gradient(135deg, var(--color-purple) 0%, var(--color-pink) 50%, var(--color-orange) 100%);
+  border: 1px solid transparent;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  height: 30px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonPrimary:hover {
+  background: linear-gradient(135deg, var(--color-orange) 0%, var(--color-pink) 50%, var(--color-purple) 100%);
+  border: 1px solid transparent;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transform: none;
+  color: #ffffff;
+}
+

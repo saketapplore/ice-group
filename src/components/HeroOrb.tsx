@@ -46,8 +46,6 @@ export default function HeroOrb() {
 
   return (
     <div ref={orbRef} className={styles.wrap}>
-      <div className={`${styles.ring} ${styles.ring1}`} />
-      <div className={`${styles.ring} ${styles.ring2}`} />
       <div className={`${styles.ring} ${styles.ring3}`} />
       <div className={`${styles.ring} ${styles.ring4}`} />
       <div className={`${styles.ring} ${styles.ring5}`} />

@@ -13,8 +13,8 @@ const Logo: React.FC<LogoProps> = ({ variant = 'default', className = '' }) => {
       <Image
         src="/images/logo.png"
         alt="ICE Group Logo"
-        width={variant === 'compact' ? 120 : variant === 'dark' ? 125 : 180}
-        height={variant === 'compact' ? 40 : variant === 'dark' ? 52 : 60}
+        width={variant === 'compact' ? 120 : variant === 'dark' ? 195 : 243}
+        height={variant === 'compact' ? 40 : variant === 'dark' ? 81 : 81}
         className={styles.logoImage}
         priority
       />

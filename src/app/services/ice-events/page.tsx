@@ -45,21 +45,21 @@ export default function ICEEventsPage() {
       <section className={styles.contentSection}>
         <div className="container">
           <AnimateOnScroll animation="fadeInUp" delay={0.1}>
-            <h1 className={`${styles.pageTitle} text-gradient`}>iCE Events</h1>
+            <h1 className={`${styles.pageTitle} text-gradient`}>ICE Events</h1>
           </AnimateOnScroll>
 
           <div className={styles.contentBox}>
-            <AnimateOnScroll animation="fadeInLeft" delay={0.2}>
+            <AnimateOnScroll animation="fadeInUp" delay={0.2}>
               <div className={styles.contentText}>
                 <p className={styles.contentParagraph}>
-                  When big corporates get their employees to travel; standalone trips are not the aim for sure! To combine corporate travel with corporate events- iCE Events came into being. This has been the most successful enterprise undertaken by us and we can proudly proclaim that we have hosted events across events across the length and the breadth of the world- from Hawaii to Sydney.
+                  When big corporates get their employees to travel; standalone trips are not the aim for sure! To combine corporate travel with corporate events- ICE Events came into being. This has been the most successful enterprise undertaken by us and we can proudly proclaim that we have hosted events across events across the length and the breadth of the world- from Hawaii to Sydney.
                 </p>
                 <p className={styles.contentParagraph}>
                   Major super-duper blockbusters have been delivered each time; every time, whenever, wherever. Bespoke, customized solutions to suit every requirement of our clients. After all, for us, the customers are our kings and queens and their wishes are or command.
                 </p>
               </div>
             </AnimateOnScroll>
-            <AnimateOnScroll animation="fadeInRight" delay={0.3}>
+            <AnimateOnScroll animation="fadeInUp" delay={0.3}>
               <div className={styles.contentImage}>
                 <Image
                   src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80"

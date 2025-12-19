@@ -55,36 +55,14 @@ export default function Footer() {
                                 New Delhi - 110016, INDIA
                             </p>
                             <div className={styles.footerContactItem}>
-                                <Image src="/phone-icon.svg" alt="Phone" width={14} height={14} className={styles.footerIcon} />
+                                <Image src="/phone-icon.svg" alt="Phone" width={16} height={16} className={styles.footerIcon} />
                                 <span className={styles.footerContactLabel}>Call :</span>
                                 <a href="tel:01142211111" className={styles.footerContactLink}>011 - 4221 1111</a>
                             </div>
                             <div className={styles.footerContactItem}>
-                                <span className={styles.footerIcon}>✉</span>
+                                <span className={styles.footerIconEmoji}>✉</span>
                                 <span className={styles.footerContactLabel}>Email :</span>
                                 <a href="mailto:info@icegroupindia.com" className={styles.footerContactLink}>info@icegroupindia.com</a>
-                            </div>
-                        </div>
-
-                        {/* UAE Office */}
-                        <div className={styles.footerOfficeSection}>
-                            <div className={styles.footerOfficeHeader}>
-                                <Image src="/location-pin.svg" alt="Location" width={16} height={16} className={styles.footerIcon} />
-                                <h4 className={styles.footerOfficeTitle}>UAE Office :</h4>
-                            </div>
-                            <p className={styles.footerAddress}>
-                                BUILDING A1 DUBAI DIGITAL PARK, DUBAI SILICON OASIS,<br />
-                                DUBAI, UNITED ARAB EMIRATES P.O.Box 342001
-                            </p>
-                            <div className={styles.footerContactItem}>
-                                <Image src="/phone-icon.svg" alt="Phone" width={14} height={14} className={styles.footerIcon} />
-                                <span className={styles.footerContactLabel}>Call :</span>
-                                <a href="tel:01142211111" className={styles.footerContactLink}>011 - 4221 1111</a>
-                            </div>
-                            <div className={styles.footerContactItem}>
-                                <span className={styles.footerIcon}>✉</span>
-                                <span className={styles.footerContactLabel}>Email :</span>
-                                <a href="mailto:mohit.khanna@icegroupindia.com" className={styles.footerContactLink}>mohit.khanna@icegroupindia.com</a>
                             </div>
                         </div>
                     </div>
