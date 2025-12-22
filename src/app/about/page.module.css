@@ -1,0 +1,190 @@
+.aboutPage {
+  padding: 60px 0;
+}
+
+.aboutTitle {
+  margin-bottom: 20px;
+}
+
+.aboutDescription {
+  max-width: 800px;
+  margin: 20px 0;
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  margin-top: 40px;
+  align-items: center;
+  background: linear-gradient(135deg, rgba(69, 69, 69, 0.3) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(69, 69, 69, 0.3) 100%);
+  padding: 40px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contentText {
+  color: var(--color-white);
+}
+
+.sectionHeading {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--color-white);
+  font-family: var(--font-secondary);
+}
+
+.contentParagraph {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-white);
+}
+
+.contentImage {
+  position: relative;
+  height: 260px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #222;
+}
+
+.missionVisionContainer {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.missionSection,
+.visionSection {
+  width: 100%;
+}
+
+.missionVisionTitle {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.missionVisionText {
+  margin-bottom: 0;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color-white);
+}
+
+.teamSection {
+  margin-top: 50px;
+  background: linear-gradient(135deg, rgba(69, 69, 69, 0.3) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(69, 69, 69, 0.3) 100%);
+  padding: 40px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.teamTitle {
+  color: white;
+  margin-bottom: 24px;
+  font-size: 2rem;
+}
+
+.teamContent {
+  color: #ccc;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.teamParagraph {
+  margin-bottom: 20px;
+}
+
+.teamHighlight {
+  margin-bottom: 0;
+  font-weight: 600;
+  color: var(--color-white);
+}
+
+@media (max-width: 768px) {
+  .aboutPage {
+    padding: 40px 0;
+  }
+
+  .aboutTitle {
+    font-size: 2rem;
+  }
+
+  .aboutDescription {
+    font-size: 1rem;
+  }
+
+  .contentGrid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 30px 20px;
+  }
+
+  .contentImage {
+    height: 200px;
+  }
+
+  .contentParagraph {
+    font-size: 0.95rem;
+  }
+
+  .missionVisionContainer {
+    margin-top: 40px;
+    gap: 32px;
+  }
+
+  .missionVisionTitle {
+    font-size: 1.75rem;
+  }
+
+  .missionVisionText {
+    font-size: 1rem;
+  }
+
+  .teamSection {
+    margin-top: 40px;
+    padding: 30px 20px;
+  }
+
+  .teamTitle {
+    font-size: 1.75rem;
+    margin-bottom: 20px;
+  }
+
+  .teamContent {
+    font-size: 0.95rem;
+  }
+
+  .teamParagraph {
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .aboutTitle {
+    font-size: 1.75rem;
+  }
+
+  .aboutDescription {
+    font-size: 0.95rem;
+  }
+
+  .contentGrid {
+    padding: 24px 16px;
+  }
+
+  .contentImage {
+    height: 180px;
+  }
+
+  .teamTitle {
+    font-size: 1.5rem;
+  }
+}
+

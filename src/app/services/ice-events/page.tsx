@@ -1,42 +1,47 @@
 "use client";
 
 import Image from 'next/image';
+import Link from 'next/link';
 import AnimateOnScroll from '@/components/AnimateOnScroll';
 import styles from './ice-events.module.css';
 
 export default function ICEEventsPage() {
   const services = [
     {
-      name: "Corporate Events",
+      name: "Corporate Events & Conferences",
       image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80",
     },
     {
-      name: "Large Format Events R&R Social events",
-      image: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80",
+      name: "Product launches",
+      image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80",
     },
     {
-      name: "Conferences Product launches",
-      image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80",
+      name: "Award Ceremonies & Gala Dinners",
+      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      name: "Dealers and Partners Meet",
+      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80",
     },
     {
       name: "Seminars",
       image: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=800&q=80",
     },
     {
-      name: "Award Ceremonies",
-      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80",
-    },
-    {
       name: "VIP events",
       image: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80",
     },
     {
-      name: "Exhibitions",
+      name: "Exhibitions & Trade Shows",
       image: "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=800&q=80",
     },
     {
-      name: "Dealer and Partner Meets",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80",
+      name: "Experiential Activations",
+      image: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      name: "Artist Management",
+      image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=800&q=80",
     },
   ];
 
@@ -44,8 +49,13 @@ export default function ICEEventsPage() {
     <div className={styles.iceEventsPage}>
       <section className={styles.contentSection}>
         <div className="container">
+          <div className={styles.ctaWrapper}>
+            <Link href="/services/mice" className={styles.ctaButton}>
+              Explore M.I.C.E →
+            </Link>
+          </div>
           <AnimateOnScroll animation="fadeInUp" delay={0.1}>
-            <h1 className={`${styles.pageTitle} text-gradient`}>ICE Events</h1>
+            <h1 className={`${styles.pageTitle} text-gradient`}>Events</h1>
           </AnimateOnScroll>
 
           <div className={styles.contentBox}>
@@ -76,6 +86,9 @@ export default function ICEEventsPage() {
 
       <section className={styles.servicesSection}>
         <div className="container">
+          <AnimateOnScroll animation="fadeInUp" delay={0.1}>
+            <h2 className={styles.servicesHeading}>We excel in:</h2>
+          </AnimateOnScroll>
           <div className={styles.servicesGrid}>
             {services.map((service, index) => (
               <AnimateOnScroll key={service.name} animation="fadeInUp" delay={0.1 + index * 0.05}>

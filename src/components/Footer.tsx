@@ -38,7 +38,20 @@ export default function Footer() {
                     <h3>Connect</h3>
                     <Link href="/newsletter">Newsletter</Link>
                     <Link href="/contact">Contact Us</Link>
-                    <Link href="/privacy">Privacy Policy</Link>
+                    <div className={styles.socialSection}>
+                        <h4 className={styles.socialTitle}>Follow us on :</h4>
+                        <div className={styles.socialIcons}>
+                            <a href="https://www.facebook.com/ICEGROUPINDIA/" target="_blank" rel="noopener noreferrer" className={`${styles.socialIcon} ${styles.facebookIcon}`} aria-label="Facebook">
+                                <Image src="/facebook-icon.svg" alt="Facebook" width={20} height={20} />
+                            </a>
+                            <a href="https://x.com/Travelmgmnt" target="_blank" rel="noopener noreferrer" className={`${styles.socialIcon} ${styles.twitterIcon}`} aria-label="Twitter">
+                                <Image src="/twitter-icon.svg" alt="Twitter" width={20} height={20} />
+                            </a>
+                            <a href="https://www.instagram.com/icegroupindia/" target="_blank" rel="noopener noreferrer" className={`${styles.socialIcon} ${styles.instagramIcon}`} aria-label="Instagram">
+                                <Image src="/instagram-icon.svg" alt="Instagram" width={20} height={20} />
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <div className={styles.column}>
@@ -60,9 +73,32 @@ export default function Footer() {
                                 <a href="tel:01142211111" className={styles.footerContactLink}>011 - 4221 1111</a>
                             </div>
                             <div className={styles.footerContactItem}>
-                                <span className={styles.footerIconEmoji}>✉</span>
+                                <Image src="/email-icon.svg" alt="Email" width={16} height={16} className={styles.footerIcon} />
                                 <span className={styles.footerContactLabel}>Email :</span>
                                 <a href="mailto:info@icegroupindia.com" className={styles.footerContactLink}>info@icegroupindia.com</a>
+                            </div>
+                        </div>
+
+                        {/* UAE Office */}
+                        <div className={styles.footerOfficeSection}>
+                            <div className={styles.footerOfficeHeader}>
+                                <Image src="/location-pin.svg" alt="Location" width={16} height={16} className={styles.footerIcon} />
+                                <h4 className={styles.footerOfficeTitle}>UAE Office :</h4>
+                            </div>
+                            <p className={styles.footerAddress}>
+                                BUILDING A1 DUBAI DIGITAL PARK DUBAI SILICON OASIS<br />
+                                DUBAI, UNITED ARAB EMIRATES<br />
+                                P.O.Box 342001
+                            </p>
+                            <div className={styles.footerContactItem}>
+                                <Image src="/phone-icon.svg" alt="Phone" width={16} height={16} className={styles.footerIcon} />
+                                <span className={styles.footerContactLabel}>Call :</span>
+                                <a href="tel:01142211111" className={styles.footerContactLink}>011 - 4221 1111</a>
+                            </div>
+                            <div className={styles.footerContactItem}>
+                                <Image src="/email-icon.svg" alt="Email" width={16} height={16} className={styles.footerIcon} />
+                                <span className={styles.footerContactLabel}>Email :</span>
+                                <a href="mailto:mohit.khanna@icegroupindia.com" className={styles.footerContactLink}>mohit.khanna@icegroupindia.com</a>
                             </div>
                         </div>
                     </div>

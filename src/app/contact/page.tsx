@@ -20,40 +20,48 @@ export default function ContactPage() {
                             <div className={styles.contactInfoSection}>
                                 <div className={styles.officeHeader}>
                                     <Image src="/location-pin.svg" alt="Location" width={20} height={20} className={styles.officeIcon} />
-                                    <h3 className={styles.officeTitle}>India Office :</h3>
+                                    <h3 className={styles.officeTitle}>India Office</h3>
                                 </div>
-                                <p className={styles.contactInfoDetail}>
-                                    G-23 (GF), Aashirwad Commercial Complex, Green Park,<br />
-                                    New Delhi - 110016, INDIA
-                                </p>
+                                <div className={styles.contactInfoItem}>
+                                    <p className={styles.contactInfoDetail}>
+                                        G-23 (GF), Aashirwad Commercial Complex, Green Park,<br />
+                                        New Delhi - 110016, INDIA
+                                    </p>
+                                </div>
                                 <div className={styles.contactInfoItem}>
                                     <Image src="/phone-icon.svg" alt="Phone" width={18} height={18} className={styles.contactIcon} />
-                                    <span className={styles.contactLabel}>24/7 Hotline :</span>
                                     <a href="tel:01142211111" className={styles.contactInfoLink}>011 - 4221 1111</a>
                                 </div>
                                 <div className={styles.contactInfoItem}>
                                     <span className={styles.contactIcon}>✉</span>
-                                    <span className={styles.contactLabel}>Email :</span>
                                     <a href="mailto:info@icegroupindia.com" className={styles.contactInfoLink}>info@icegroupindia.com</a>
+                                </div>
+                                <div className={styles.contactInfoItem}>
+                                    <Image src="/location-pin.svg" alt="Location" width={18} height={18} className={styles.contactIcon} />
+                                    <p className={styles.contactInfoDetail}>Europe Office - Opening Shortly</p>
                                 </div>
                             </div>
 
-                            {/* Follow Us */}
+                            {/* UAE Office */}
                             <div className={styles.contactInfoSection}>
-                                <div className={styles.followUsHeader}>
-                                    <h3 className={styles.followUsTitle}>Follow us on :</h3>
+                                <div className={styles.officeHeader}>
+                                    <Image src="/location-pin.svg" alt="Location" width={20} height={20} className={styles.officeIcon} />
+                                    <h3 className={styles.officeTitle}>UAE Office</h3>
                                 </div>
-                                <div className={styles.socialIcons}>
-                                    <a href="https://www.facebook.com/ICEGROUPINDIA/" target="_blank" rel="noopener noreferrer" className={`${styles.socialIcon} ${styles.facebookIcon}`} aria-label="Facebook">
-                                        <Image src="/facebook-icon.svg" alt="Facebook" width={20} height={20} />
-                                    </a>
-                                    <a href="https://x.com/Travelmgmnt" target="_blank" rel="noopener noreferrer" className={`${styles.socialIcon} ${styles.twitterIcon}`} aria-label="Twitter">
-                                        <Image src="/twitter-icon.svg" alt="Twitter" width={20} height={20} />
-                                    </a>
-                                    <a href="https://www.instagram.com/icegroupindia/" target="_blank" rel="noopener noreferrer" className={`${styles.socialIcon} ${styles.instagramIcon}`} aria-label="Instagram">
-                                        <Image src="/instagram-icon.svg" alt="Instagram" width={20} height={20} />
-                                    </a>
-                                    <a href="https://www.linkedin.com/company/icegroup-india" target="_blank" rel="noopener noreferrer" className={`${styles.socialIcon} ${styles.linkedInIcon}`} aria-label="LinkedIn" style={{ fontFamily: 'Arial, sans-serif', fontWeight: 'bold' }}>in</a>
+                                <div className={styles.contactInfoItem}>
+                                    <p className={styles.contactInfoDetail}>
+                                        BUILDING A1 DUBAI DIGITAL PARK DUBAI SILICON OASIS<br />
+                                        DUBAI, UNITED ARAB EMIRATES<br />
+                                        P.O.Box 342001
+                                    </p>
+                                </div>
+                                <div className={styles.contactInfoItem}>
+                                    <Image src="/phone-icon.svg" alt="Phone" width={18} height={18} className={styles.contactIcon} />
+                                    <a href="tel:01142211111" className={styles.contactInfoLink}>011 - 4221 1111</a>
+                                </div>
+                                <div className={styles.contactInfoItem}>
+                                    <span className={styles.contactIcon}>✉</span>
+                                    <a href="mailto:mohit.khanna@icegroupindia.com" className={styles.contactInfoLink}>mohit.khanna@icegroupindia.com</a>
                                 </div>
                             </div>
                         </div>

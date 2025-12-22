@@ -104,6 +104,14 @@
   z-index: 2;
 }
 
+.servicesHeading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 40px;
+  text-align: center;
+}
+
 .servicesGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -222,6 +230,47 @@
 
   .serviceLabel h3 {
     font-size: 0.95rem;
+  }
+}
+
+.ctaWrapper {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--color-purple) 0%, var(--color-pink) 50%, var(--color-orange) 100%);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(121, 27, 84, 0.3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(121, 27, 84, 0.4);
+  background: linear-gradient(135deg, var(--color-orange) 0%, var(--color-pink) 50%, var(--color-purple) 100%);
+  color: #ffffff !important;
+}
+
+@media (max-width: 768px) {
+  .ctaWrapper {
+    margin-bottom: 16px;
+  }
+  
+  .ctaButton {
+    padding: 10px 20px;
+    font-size: 0.9rem;
   }
 }
 

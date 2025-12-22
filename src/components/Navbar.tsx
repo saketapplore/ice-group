@@ -21,18 +21,13 @@ export default function Navbar() {
                     <div className={styles.dropdown}>
                         <span className={styles.link}>Services</span>
                         <div className={styles.dropdownMenu}>
-                            <Link href="/services/ice-events" className={styles.dropdownItem}>ICE</Link>
-                            <Link href="/services/mice" className={styles.dropdownItem}>MICE</Link>
+                            <Link href="/services/ice-events" className={styles.dropdownItem}>Events</Link>
+                            <Link href="/services/mice" className={styles.dropdownItem}>M.I.C.E</Link>
                         </div>
                     </div>
                     <Link href="/gallery" className={styles.link} onClick={() => setIsMobileMenuOpen(false)}>Gallery</Link>
                     <Link href="/newsletter" className={styles.link} onClick={() => setIsMobileMenuOpen(false)}>Newsletter</Link>
                     <Link href="/contact" className={styles.link} onClick={() => setIsMobileMenuOpen(false)}>Contact Us</Link>
-                </div>
-                <div className={styles.cta}>
-                    <Link href="/contact">
-                        <Button variant="primary">Get Quote</Button>
-                    </Link>
                 </div>
                 <button 
                     className={styles.mobileMenuButton}

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from 'next/image';
+import Link from 'next/link';
 import AnimateOnScroll from '@/components/AnimateOnScroll';
 import styles from './mice.module.css';
 
@@ -56,6 +57,11 @@ export default function MICEPage() {
     <div className={styles.micePage}>
       <section className={styles.contentSection}>
         <div className="container">
+          <div className={styles.ctaWrapper}>
+            <Link href="/services/ice-events" className={styles.ctaButton}>
+              Explore Events →
+            </Link>
+          </div>
           <AnimateOnScroll animation="fadeInUp" delay={0.1}>
             <h1 className={`${styles.pageTitle} text-gradient`}>MICE</h1>
           </AnimateOnScroll>
@@ -64,10 +70,10 @@ export default function MICEPage() {
             <AnimateOnScroll animation="fadeInUp" delay={0.2}>
               <div className={styles.contentText}>
                 <p className={styles.contentParagraph}>
-                  To travel is to live was the maxim that led to the establishment of the company's first vertical. Ever since, there has been no looking back. In its illustrious journey of the past 11 years, the company has managed travel, tours, journeys and experiences to all parts of the world with perfect aplomb. In our kitty, we have accumulated a vast and expansive kitty of extremely satisfied and gratified patrons. We have serviced big bigwigs across industries and geographies to the best of our ability; each time only ensuring customer delight.
+                  To travel is to live was the maxim that led to the establishment of the company&apos;s first vertical. Ever since, there has been no looking back. In its illustrious journey of the past 15 years, the company has managed travel, tours, journeys and experiences to all parts of the world with perfect aplomb. In our kitty, we have accumulated a vast and expansive kitty of extremely satisfied and gratified patrons. We have serviced big bigwigs across industries and geographies to the best of our ability; each time only ensuring customer delight.
                 </p>
                 <p className={styles.contentParagraph}>
-                  We have planned and managed travel plans for our awesome clients for employee motivation and reward and recognition programs, annual general meetings, dealer meets and many more. Fun, frolic, fanfare and exploring newer geographies and locales never fails to excite anyone. And with iCE Tours and Travel; the experience is just surreal, out of the world and exotic. We guarantee you an experience; of which you will not tire of sharing anecdotes with your grandchildren and great grandchildren.
+                  We have planned and managed travel plans for our awesome clients for employee motivation and reward and recognition programs, annual general meetings, dealer meets and many more. Fun, frolic, fanfare and exploring newer geographies and locales never fails to excite anyone. And with iCE Travels; the experience is just surreal, out of the world and exotic. We guarantee you an experience; of which you will not tire of sharing anecdotes with your grandchildren and great grandchildren.
                 </p>
               </div>
             </AnimateOnScroll>

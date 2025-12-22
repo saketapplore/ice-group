@@ -1,5 +1,5 @@
 .card {
-    background: var(--color-black);
+    background: linear-gradient(135deg, var(--color-purple) 0%, var(--color-pink) 100%);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     overflow: hidden;
@@ -31,9 +31,9 @@
 
 .card:hover {
     transform: translateY(-8px) scale(1.02);
-    background: var(--color-black);
+    background: linear-gradient(135deg, var(--color-pink) 0%, var(--color-purple) 100%);
     border-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 16px 40px rgba(121, 27, 84, 0.4);
 }
 
 .imageWrap {
@@ -66,22 +66,20 @@
 .title {
     font-size: 1.2rem;
     font-weight: 700;
-    color: var(--text-light);
+    color: #ffffff;
     font-family: var(--font-secondary);
     transition: all 0.3s ease;
 }
 
 .card:hover .title {
-    background: linear-gradient(to right, var(--color-purple), var(--color-orange));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #ffffff;
 }
 
 .description {
-    color: #999;
+    color: #ffffff;
     line-height: 1.6;
     font-size: 0.96rem;
+    opacity: 0.9;
 }
 
 @media (max-width: 768px) {

@@ -5,6 +5,7 @@ import ServiceCard from '@/components/ServiceCard';
 import Button from '@/components/Button';
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import styles from './page.module.css';
 
@@ -131,21 +132,7 @@ function TestimonialCarousel() {
 }
 
 export default function Home() {
-  const [currentHeroImage, setCurrentHeroImage] = useState(0);
-  
-  const heroImages = [
-    "/images/decorated-banquet-hall-with-flowers.jpg",
-    "/images/hero1.jpg",
-    "/images/hero2.jpg",
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentHeroImage((prev) => (prev + 1) % heroImages.length);
-    }, 2700); // 2.7 seconds
-
-    return () => clearInterval(interval);
-  }, [heroImages.length]);
+  const videoRef = useRef<HTMLDivElement>(null);
 
   const events = [
     {
@@ -218,22 +205,20 @@ export default function Home() {
   return (
     <main>
       <section className={styles.heroSection}>
-        <div className={styles.heroCarousel}>
-          {heroImages.map((image, index) => (
-            <div
-              key={index}
-              className={`${styles.heroCarouselImage} ${index === currentHeroImage ? styles.heroCarouselImageActive : ''}`}
-              style={{ backgroundImage: `url(${image})` }}
-            />
-          ))}
+        <div className={styles.heroVideoContainer} ref={videoRef}>
+          <iframe
+            src="https://player.vimeo.com/video/654448243?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1&background=1"
+            frameBorder="0"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            className={styles.heroVideo}
+            title="Website Video"
+          />
         </div>
+        <Script src="https://player.vimeo.com/api/player.js" strategy="afterInteractive" />
         <div className={`container ${styles.heroContent}`}>
           <div className={styles.heroInner}>
             <div className={styles.heroCopy}>
-              <h1 className={styles.heroTitle}>Events that are as unique as you are</h1>
-              <p className={styles.heroSubtitle}>
-                ICE Group crafts experiences that move people. From corporate events to global travel, we deliver comprehensive MICE solutions that connect audiences with ideas.
-              </p>
               <div className={styles.heroActions}>
                 <Link href="/contact" className={styles.planExperienceBox}>
                   Plan your experience →
@@ -250,20 +235,22 @@ export default function Home() {
             <AnimateOnScroll animation="fadeInLeft" delay={0.1}>
               <div className={styles.clientsContent}>
                 <h2 className={styles.clientsTitle}>
-                  <span className="text-gradient">Our Clients</span>
+                  <span className="text-gradient">Our Prominent Patrons</span>
                 </h2>
-                <p className={styles.clientsDescription}>
-                  We&apos;ve had the privilege of working with some of the most prominent brands, delivering exceptional MICE solutions and travel experiences that exceed expectations.
-                </p>
               </div>
             </AnimateOnScroll>
             <div className={styles.clientsLogosWrapper}>
-              <div className={styles.clientsColumn}>
                 <div className={styles.clientsTrack}>
                   {[
                     { name: "USHA", logo: "/images/USHA.png" },
                     { name: "Unilever", logo: "/images/uniliver.jpg" },
                     { name: "BAJAJ Allianz", logo: "/images/Bajaj.png" },
+                  { name: "Glenmark", logo: "/images/Glenmark.png" },
+                  { name: "ONGC", logo: "/images/ONGC.png" },
+                  { name: "Tech Mahindra", logo: "/images/tech mahindra.png" },
+                  { name: "PNB MetLife", logo: "/images/PNB.png" },
+                  { name: "SHRIRAM General Insurance", logo: "/images/s.png" },
+                  { name: "Abbott", logo: "/images/abbott.png" },
                   ].map((client, index) => (
                     <div key={`${client.name}-${index}`} className={styles.clientLogoCard}>
                       <Image
@@ -280,62 +267,14 @@ export default function Home() {
                     { name: "USHA", logo: "/images/USHA.png" },
                     { name: "Unilever", logo: "/images/uniliver.jpg" },
                     { name: "BAJAJ Allianz", logo: "/images/Bajaj.png" },
-                  ].map((client, index) => (
-                    <div key={`${client.name}-dup1-${index}`} className={styles.clientLogoCard}>
-                      <Image
-                        src={client.logo}
-                        alt={client.name}
-                        fill
-                        className={styles.clientLogoImage}
-                        sizes="180px"
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className={styles.clientsColumn}>
-                <div className={`${styles.clientsTrack} ${styles.clientsTrackReverse}`}>
-                  {[
                     { name: "Glenmark", logo: "/images/Glenmark.png" },
                     { name: "ONGC", logo: "/images/ONGC.png" },
                     { name: "Tech Mahindra", logo: "/images/tech mahindra.png" },
-                  ].map((client, index) => (
-                    <div key={`${client.name}-${index}`} className={styles.clientLogoCard}>
-                      <Image
-                        src={client.logo}
-                        alt={client.name}
-                        fill
-                        className={styles.clientLogoImage}
-                        sizes="180px"
-                      />
-                    </div>
-                  ))}
-                  {/* Duplicate for seamless scrolling */}
-                  {[
-                    { name: "Glenmark", logo: "/images/Glenmark.png" },
-                    { name: "ONGC", logo: "/images/ONGC.png" },
-                    { name: "Tech Mahindra", logo: "/images/tech mahindra.png" },
-                  ].map((client, index) => (
-                    <div key={`${client.name}-dup2-${index}`} className={styles.clientLogoCard}>
-                      <Image
-                        src={client.logo}
-                        alt={client.name}
-                        fill
-                        className={styles.clientLogoImage}
-                        sizes="180px"
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className={styles.clientsColumn}>
-                <div className={styles.clientsTrack}>
-                  {[
                     { name: "PNB MetLife", logo: "/images/PNB.png" },
                     { name: "SHRIRAM General Insurance", logo: "/images/s.png" },
                     { name: "Abbott", logo: "/images/abbott.png" },
                   ].map((client, index) => (
-                    <div key={`${client.name}-${index}`} className={styles.clientLogoCard}>
+                  <div key={`${client.name}-dup-${index}`} className={styles.clientLogoCard}>
                       <Image
                         src={client.logo}
                         alt={client.name}
@@ -345,23 +284,6 @@ export default function Home() {
                       />
                     </div>
                   ))}
-                  {/* Duplicate for seamless scrolling */}
-                  {[
-                    { name: "PNB MetLife", logo: "/images/PNB.png" },
-                    { name: "SHRIRAM General Insurance", logo: "/images/s.png" },
-                    { name: "Abbott", logo: "/images/abbott.png" },
-                  ].map((client, index) => (
-                    <div key={`${client.name}-dup3-${index}`} className={styles.clientLogoCard}>
-                      <Image
-                        src={client.logo}
-                        alt={client.name}
-                        fill
-                        className={styles.clientLogoImage}
-                        sizes="180px"
-                      />
-                    </div>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
@@ -386,7 +308,7 @@ export default function Home() {
                     alt={event.title}
                     fill
                     sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 100vw"
-                    style={{ objectFit: "cover" }}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
                 <div className={styles.eventBody}>
@@ -449,7 +371,7 @@ export default function Home() {
                   <p className={styles.kicker}><span className="text-gradient">Welcome</span></p>
                   <h2>Experiences that move people and brands forward.</h2>
                   <p className={styles.muted}>
-                    We design and deliver comprehensive MICE solutions—from corporate events and conferences to incentive travel and global expeditions. Our teams blend strategy, creativity, and precise execution to make every moment memorable. Whether it&apos;s planning your next corporate gathering or orchestrating travel experiences across the world, we ensure customer delight at every step.
+                    We design and deliver comprehensive MICE solutions: from corporate events and conferences to incentive travel and global expeditions. Our teams blend strategy, creativity, and precise execution to make every moment memorable. Whether it&apos;s planning your next corporate gathering or orchestrating travel experiences across the world, we ensure customer delight at every step.
                   </p>
                   <div className={styles.inlineActions}>
                     <Link href="/contact" className={styles.planExperienceBox}>
@@ -543,6 +465,16 @@ export default function Home() {
               </Link>
             </div>
           </AnimateOnScroll>
+          <div className={styles.certificationsSection}>
+            <h3 className={styles.certificationsHeading}>AFFILIATIONS</h3>
+            <Image
+              src="/images/Screenshot_2025-12-22_124826-removebg-preview.png"
+              alt="Certifications and Accreditations"
+              width={800}
+              height={150}
+              className={styles.certificationBadge}
+            />
+          </div>
         </div>
       </section>
     </main>
