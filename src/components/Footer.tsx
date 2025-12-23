@@ -73,23 +73,43 @@ export default function Footer() {
 
                     <div className="mt-4">
                         <p className="text-white font-semibold mb-3">Follow us on :</p>
-                        <div className="flex gap-4">
+
+                        <div className="flex gap-4 items-center">
                             {/* Facebook */}
+                            <a
+                                href="https://www.facebook.com/ICEGROUPINDIA/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="ICE Group Facebook"
+                                className="hover:opacity-80 transition"
+                            >
+                                <Image src="/facebook.svg" alt="Facebook" width={24} height={24} />
+                            </a>
 
-                            <Image src="/facebook.svg" alt="Facebook" width={20} height={20} />
-
-
-                            {/* LinkedIn (REPLACED TWITTER) */}
-
-                            <Image src="/linkedin-icon.svg" alt="LinkedIn" width={20} height={20} />
-
+                            {/* LinkedIn */}
+                            <a
+                                href="https://www.linkedin.com/company/icexperiences/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="ICE Group LinkedIn"
+                                className="hover:opacity-80 transition"
+                            >
+                                <Image src="/linkedin-icon.svg" alt="LinkedIn" width={24} height={24} />
+                            </a>
 
                             {/* Instagram */}
-
-                            <Image src="/instagram.svg" alt="Instagram" width={18} height={18} />
-
+                            <a
+                                href="https://www.instagram.com/icegroupindia/?hl=en"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="ICE Group Instagram"
+                                className="hover:opacity-80 transition"
+                            >
+                                <Image src="/instagram.svg" alt="Instagram" width={24} height={24} />
+                            </a>
                         </div>
                     </div>
+
                 </div>
 
                 {/* COLUMN 4 — GET IN TOUCH */}
@@ -156,7 +176,7 @@ export default function Footer() {
                                 href="mailto:mohit.khanna@icegroupindia.com"
                                 className="flex items-center gap-2 hover:text-white transition"
                             >
-                                <Mail size={14}  className="lg:-mt-5"/>
+                                <Mail size={14} className="lg:-mt-5" />
                                 Email : mohit.khanna@icegroupindia.com
                             </a></div>
 
