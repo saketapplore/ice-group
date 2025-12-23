@@ -4,7 +4,7 @@
 }
 
 .gallerySection {
-  padding: 60px 0 0 0;
+  padding: 130px 0 0 0; /* offset for fixed header so heading is fully visible */
 }
 
 .galleryTitle {
@@ -14,34 +14,32 @@
 .galleryDescription {
   color: #ccc;
   margin-bottom: 0;
+
 }
 
 .galleryGridContainer {
+  
   position: relative;
   width: 100%;
-  margin-top: 0;
+  margin-top: 40px;
   margin-bottom: 0;
   padding: 0;
 }
 
 .galleryGrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
   width: 100%;
   height: auto;
-  min-height: 100vh;
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-top: 0;
-  padding-bottom: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .galleryGridItem {
   position: relative;
   width: 100%;
-  height: 400px;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   border-radius: 8px;
   background: #111;
@@ -69,9 +67,7 @@
   transition: transform 0.3s ease;
 }
 
-.galleryImage:hover {
-  transform: scale(1.05);
-}
+
 
 
 .modalOverlay {
@@ -152,13 +148,13 @@
 
 @media (max-width: 1024px) {
   .galleryGridItem {
-    height: 350px;
+    aspect-ratio: 4 / 3;
   }
 }
 
 @media (max-width: 768px) {
   .gallerySection {
-    padding: 40px 0 0 0;
+    padding: 110px 0 0 0;
   }
 
   .galleryTitle {
@@ -171,14 +167,8 @@
     margin-bottom: 0;
   }
 
-  .galleryGrid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(10, 1fr);
-    gap: 15px;
-  }
-
   .galleryGridItem {
-    height: 300px;
+    aspect-ratio: 4 / 3;
   }
 
   .closeButton {
@@ -203,20 +193,14 @@
 
 @media (max-width: 480px) {
   .gallerySection {
-    padding: 30px 0 0 0;
+    padding: 100px 0 0 0;
   }
 
   .galleryTitle {
     font-size: 1.75rem;
   }
 
-  .galleryGrid {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(5, 1fr);
-    gap: 12px;
-  }
-
   .galleryGridItem {
-    height: 250px;
+    aspect-ratio: 4 / 3;
   }
 }

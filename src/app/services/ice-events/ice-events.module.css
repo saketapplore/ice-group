@@ -4,7 +4,7 @@
 }
 
 .contentSection {
-  padding: 40px 0 100px 0;
+  padding: 130px 0 100px 0; /* extra top padding to clear fixed header */
   background: linear-gradient(135deg, #000000 0%, #0a0a0a 20%, #000000 40%, #0a0a0a 60%, #000000 80%, #000000 100%);
   position: relative;
 }
@@ -185,10 +185,6 @@
 }
 
 @media (max-width: 768px) {
-  .iceEventsPage {
-    padding: 60px 0;
-  }
-
   .pageTitle {
     font-size: 2.5rem;
     margin-bottom: 20px;

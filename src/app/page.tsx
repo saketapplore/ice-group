@@ -29,11 +29,11 @@ function CountUpNumber({ target, duration = 3000 }: { target: number; duration?:
             const animate = (currentTime: number) => {
               if (startTime === null) startTime = currentTime;
               const progress = Math.min((currentTime - startTime) / duration, 1);
-              
+
               // Smooth easing function (easeOutCubic)
               const easeOutCubic = 1 - Math.pow(1 - progress, 3);
               const currentCount = Math.floor(startValue + (endValue - startValue) * easeOutCubic);
-              
+
               setCount(currentCount);
 
               if (progress < 1) {
@@ -240,50 +240,50 @@ export default function Home() {
               </div>
             </AnimateOnScroll>
             <div className={styles.clientsLogosWrapper}>
-                <div className={styles.clientsTrack}>
-                  {[
-                    { name: "USHA", logo: "/images/USHA.png" },
-                    { name: "Unilever", logo: "/images/uniliver.jpg" },
-                    { name: "BAJAJ Allianz", logo: "/images/Bajaj.png" },
+              <div className={styles.clientsTrack}>
+                {[
+                  { name: "USHA", logo: "/images/USHA.png" },
+                  { name: "Unilever", logo: "/images/uniliver.jpg" },
+                  { name: "BAJAJ Allianz", logo: "/images/Bajaj.png" },
                   { name: "Glenmark", logo: "/images/Glenmark.png" },
                   { name: "ONGC", logo: "/images/ONGC.png" },
                   { name: "Tech Mahindra", logo: "/images/tech mahindra.png" },
                   { name: "PNB MetLife", logo: "/images/PNB.png" },
                   { name: "SHRIRAM General Insurance", logo: "/images/s.png" },
                   { name: "Abbott", logo: "/images/abbott.png" },
-                  ].map((client, index) => (
-                    <div key={`${client.name}-${index}`} className={styles.clientLogoCard}>
-                      <Image
-                        src={client.logo}
-                        alt={client.name}
-                        fill
-                        className={styles.clientLogoImage}
-                        sizes="180px"
-                      />
-                    </div>
-                  ))}
-                  {/* Duplicate for seamless scrolling */}
-                  {[
-                    { name: "USHA", logo: "/images/USHA.png" },
-                    { name: "Unilever", logo: "/images/uniliver.jpg" },
-                    { name: "BAJAJ Allianz", logo: "/images/Bajaj.png" },
-                    { name: "Glenmark", logo: "/images/Glenmark.png" },
-                    { name: "ONGC", logo: "/images/ONGC.png" },
-                    { name: "Tech Mahindra", logo: "/images/tech mahindra.png" },
-                    { name: "PNB MetLife", logo: "/images/PNB.png" },
-                    { name: "SHRIRAM General Insurance", logo: "/images/s.png" },
-                    { name: "Abbott", logo: "/images/abbott.png" },
-                  ].map((client, index) => (
+                ].map((client, index) => (
+                  <div key={`${client.name}-${index}`} className={styles.clientLogoCard}>
+                    <Image
+                      src={client.logo}
+                      alt={client.name}
+                      fill
+                      className={styles.clientLogoImage}
+                      sizes="fit-content"
+                    />
+                  </div>
+                ))}
+                {/* Duplicate for seamless scrolling */}
+                {[
+                  { name: "USHA", logo: "/images/USHA.png" },
+                  { name: "Unilever", logo: "/images/uniliver.jpg" },
+                  { name: "BAJAJ Allianz", logo: "/images/Bajaj.png" },
+                  { name: "Glenmark", logo: "/images/Glenmark.png" },
+                  { name: "ONGC", logo: "/images/ONGC.png" },
+                  { name: "Tech Mahindra", logo: "/images/tech mahindra.png" },
+                  { name: "PNB MetLife", logo: "/images/PNB.png" },
+                  { name: "SHRIRAM General Insurance", logo: "/images/s.png" },
+                  { name: "Abbott", logo: "/images/abbott.png" },
+                ].map((client, index) => (
                   <div key={`${client.name}-dup-${index}`} className={styles.clientLogoCard}>
-                      <Image
-                        src={client.logo}
-                        alt={client.name}
-                        fill
-                        className={styles.clientLogoImage}
-                        sizes="180px"
-                      />
-                    </div>
-                  ))}
+                    <Image
+                      src={client.logo}
+                      alt={client.name}
+                      fill
+                      className={styles.clientLogoImage}
+                      sizes=""
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -302,21 +302,21 @@ export default function Home() {
             {events.map((event, index) => (
               <AnimateOnScroll key={event.title} animation="fadeInUp" delay={0.1 + index * 0.1}>
                 <div className={styles.eventCard}>
-                <div className={styles.eventImageWrap}>
-                  <Image
-                    src={event.image}
-                    alt={event.title}
-                    fill
-                    sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 100vw"
-                    style={{ objectFit: "contain" }}
-                  />
+                  <div className={styles.eventImageWrap}>
+                    <Image
+                      src={event.image}
+                      alt={event.title}
+                      fill
+                      sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 100vw"
+                      style={{ objectFit: "contain" }}
+                    />
+                  </div>
+                  <div className={styles.eventBody}>
+                    <p className={styles.muted}>{event.date}</p>
+                    <h3>{event.title}</h3>
+                    <p className={styles.textLink}>Featured event</p>
+                  </div>
                 </div>
-                <div className={styles.eventBody}>
-                  <p className={styles.muted}>{event.date}</p>
-                  <h3>{event.title}</h3>
-                  <p className={styles.textLink}>Featured event</p>
-                </div>
-              </div>
               </AnimateOnScroll>
             ))}
           </div>
@@ -474,6 +474,13 @@ export default function Home() {
               height={150}
               className={styles.certificationBadge}
             />
+            {/* <Image
+              src="/images/certification-badge.png"
+              alt="Certifications and Accreditations"
+              width={800}
+              height={150}
+              className={styles.certificationBadge}
+            /> */}
           </div>
         </div>
       </section>

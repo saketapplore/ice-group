@@ -1,5 +1,5 @@
 .aboutPage {
-  padding: 60px 0;
+  padding: 130px 0 60px 0; /* extra top padding to clear fixed header */
 }
 
 .aboutTitle {
@@ -109,7 +109,7 @@
 
 @media (max-width: 768px) {
   .aboutPage {
-    padding: 40px 0;
+    padding: 110px 0 40px 0;
   }
 
   .aboutTitle {

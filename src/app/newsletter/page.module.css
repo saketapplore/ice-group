@@ -1,5 +1,5 @@
 .newsletterPage {
-  padding: 40px 0;
+  padding: 130px 0 40px 0; /* offset for fixed header */
   animation: fadeIn 0.6s ease-out;
 }
 

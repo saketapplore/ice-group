@@ -1,6 +1,6 @@
 .contactPage {
   min-height: 100vh;
-  padding: 60px 20px;
+  padding: 130px 20px 60px 20px; /* offset for fixed header */
   background: var(--color-black);
 }
 
@@ -349,7 +349,7 @@
 
 @media (max-width: 768px) {
   .contactPage {
-    padding: 40px 16px;
+    padding: 110px 16px 40px 16px;
   }
 
   .contactInfoCard {

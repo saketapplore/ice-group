@@ -87,8 +87,8 @@ function GalleryGrid({ onImageClick }: { onImageClick: (image: typeof galleryIma
                       src={setImage.src}
                       alt={setImage.alt}
                       fill
-                      sizes="(max-width: 768px) 50vw, 25vw"
-                      style={{ objectFit: "contain" }}
+                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                      style={{ objectFit: "cover" }}
                       priority={setIndex === currentSetIndex && gridIndex < 2}
                       onClick={() => onImageClick(setImage)}
                       className={styles.galleryImage}

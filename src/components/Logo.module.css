@@ -2,16 +2,25 @@
   display: flex;
   align-items: center;
   height: 100%;
+  
 }
 
 .logoImage {
   height: auto;
   width: auto;
   object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.logoImage:hover {
+  transform: scale(1.05);
+  opacity: 0.95;
 }
 
 .dark .logoImage {
-  height: 81px;
+  height: 125px;
   width: auto;
 }
 
@@ -41,7 +50,12 @@
   width: 0.35em;
   height: 0.35em;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--color-orange) 0%, var(--color-pink) 50%, var(--color-purple) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-orange) 0%,
+    var(--color-pink) 50%,
+    var(--color-purple) 100%
+  );
   display: block;
   z-index: 1;
 }
@@ -61,14 +75,19 @@
 .letterEice {
   position: relative;
   display: inline-block;
-  background: linear-gradient(to right, var(--color-purple) 0%, var(--color-pink) 50%, var(--color-orange) 100%);
+  background: linear-gradient(
+    to right,
+    var(--color-purple) 0%,
+    var(--color-pink) 50%,
+    var(--color-orange) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .letterEice::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0.2em;
   right: 0.08em;
@@ -105,7 +124,12 @@
 }
 
 .letterIGradient {
-  background: linear-gradient(180deg, var(--color-purple) 0%, var(--color-pink) 50%, var(--color-orange) 100%);
+  background: linear-gradient(
+    180deg,
+    var(--color-purple) 0%,
+    var(--color-pink) 50%,
+    var(--color-orange) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -124,9 +148,13 @@
   line-height: 1;
 }
 
-
 .letterX {
-  background: linear-gradient(180deg, var(--color-purple) 0%, var(--color-pink) 50%, var(--color-orange) 100%);
+  background: linear-gradient(
+    180deg,
+    var(--color-purple) 0%,
+    var(--color-pink) 50%,
+    var(--color-orange) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -150,20 +178,29 @@
 }
 
 .dark .letterEice {
-  background: linear-gradient(to right, var(--color-purple) 0%, var(--color-pink) 50%, var(--color-orange) 100%);
+  background: linear-gradient(
+    to right,
+    var(--color-purple) 0%,
+    var(--color-pink) 50%,
+    var(--color-orange) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .dark .dot {
-  background: linear-gradient(135deg, var(--color-orange) 0%, var(--color-pink) 50%, var(--color-purple) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-orange) 0%,
+    var(--color-pink) 50%,
+    var(--color-purple) 100%
+  );
 }
 
 .dark .tagline {
   display: flex;
 }
-
 
 .dark .innovativeRest,
 .dark .experiencesRest {
@@ -171,7 +208,12 @@
 }
 
 .dark .letterX {
-  background: linear-gradient(180deg, var(--color-purple) 0%, var(--color-pink) 50%, var(--color-orange) 100%);
+  background: linear-gradient(
+    180deg,
+    var(--color-purple) 0%,
+    var(--color-pink) 50%,
+    var(--color-orange) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -182,7 +224,7 @@
   .icePart {
     font-size: 1.8rem;
   }
-  
+
   .tagline {
     font-size: 0.4rem;
   }
