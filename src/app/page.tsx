@@ -741,7 +741,7 @@ export default function Home() {
           </div>
         </div>
       </section> */}
-      <IntroSection/>
+      <IntroSection />
 
       <section className="relative py-[100px] bg-[#fafafa] text-black animate-fadeIn">
         <div className="mx-auto max-w-7xl px-6">
