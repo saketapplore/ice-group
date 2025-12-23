@@ -1,10 +1,9 @@
 "use client";
 
-import Button from '@/components/Button';
-import Link from 'next/link';
-import Image from 'next/image';
-import AnimateOnScroll from '@/components/AnimateOnScroll';
-import styles from './services.module.css';
+import Button from "@/components/Button";
+import Link from "next/link";
+import Image from "next/image";
+import AnimateOnScroll from "@/components/AnimateOnScroll";
 
 export default function ServicesPage() {
   const services = [
@@ -71,64 +70,79 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div className={`container ${styles.servicesPage}`}>
-      <section className={styles.servicesHeader}>
-        <div className={styles.headerContent}>
-          <AnimateOnScroll animation="fadeInUp" delay={0.1}>
-            <div className={styles.headerText}>
-              <h1 className="text-gradient" style={{ marginBottom: '16px' }}>Our Services</h1>
-              <p style={{ color: '#ccc', maxWidth: '560px' }}>
-                Comprehensive MICE solutions combining events, conferences, exhibitions, and travel services. From venue selection to global expeditions, we deliver experiences that move people and brands forward.
+    <section className="pt-[130px] pb-10 animate-fadeIn">
+      <div className="mx-auto max-w-7xl px-6">
+
+        {/* HEADER */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-10 items-center mb-12">
+          <AnimateOnScroll animation="fadeInLeft" delay={0.1}>
+            <div>
+              <h1 className="text-gradient text-4xl font-bold mb-4">
+                Our Services
+              </h1>
+              <p className="text-white/70 max-w-[560px] text-sm leading-relaxed">
+                Comprehensive MICE solutions combining events, conferences,
+                exhibitions, and travel services. We deliver experiences that
+                move people and brands forward.
               </p>
             </div>
           </AnimateOnScroll>
-          <AnimateOnScroll animation="fadeInUp" delay={0.2}>
-            <div className={styles.headerImage}>
+
+          <AnimateOnScroll animation="fadeInRight" delay={0.2}>
+            <div className="relative h-[220px] rounded-2xl overflow-hidden border border-white/10 hover:scale-[1.05] transition">
               <Image
                 src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80"
-                alt="Vibrant corporate event with stage lighting"
+                alt="Corporate Event"
                 fill
-                sizes="(min-width: 1024px) 40vw, 100vw"
-                style={{ objectFit: 'cover' }}
+                className="object-cover"
               />
             </div>
           </AnimateOnScroll>
         </div>
 
-        <div className={styles.servicesGrid}>
+        {/* SERVICES GRID */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <AnimateOnScroll key={service.title} animation="fadeInUp" delay={0.1 + index * 0.06}>
-              <article className={styles.card}>
-              <div className={styles.imageWrap}>
-                <Image
-                  src={service.image}
-                  alt={service.title}
-                  fill
-                  sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                  style={{ objectFit: 'cover' }}
-                />
-                <div className={styles.hoverOverlay}>
-                  <p>{service.description}</p>
+            <AnimateOnScroll
+              key={service.title}
+              animation="fadeInUp"
+              delay={0.1 + index * 0.05}
+            >
+              <article className="group bg-gradient-to-br from-[#454545] to-black rounded-2xl border border-white/10 overflow-hidden shadow-xl transition hover:-translate-y-2 hover:scale-[1.02]">
+                <div className="relative h-[190px] overflow-hidden">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover transition group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-black/10 opacity-0 group-hover:opacity-100 transition flex items-end p-4 text-sm text-white">
+                    {service.description}
+                  </div>
                 </div>
-              </div>
-              <div className={styles.body}>
-                <h3>{service.title}</h3>
-              </div>
-            </article>
+
+                <div className="px-4 pt-2 pb-4">
+                  <h3 className="text-white text-lg font-semibold transition group-hover:bg-gradient-to-r group-hover:from-purple-500 group-hover:to-orange-400 group-hover:bg-clip-text group-hover:text-transparent">
+                    {service.title}
+                  </h3>
+                </div>
+              </article>
             </AnimateOnScroll>
           ))}
         </div>
 
-        <AnimateOnScroll animation="fadeInUp" delay={0.2}>
-          <div className={styles.ctaSection}>
-            <h2 style={{ color: 'var(--color-white)', marginBottom: '20px' }}>Need a custom solution?</h2>
+        {/* CTA */}
+        <AnimateOnScroll animation="fadeInUp" delay={0.3}>
+          <div className="mt-16 text-center bg-gradient-to-br from-[#454545] to-black rounded-2xl p-10 hover:-translate-y-1 transition shadow-xl">
+            <h2 className="text-white text-2xl font-semibold mb-5">
+              Need a custom solution?
+            </h2>
             <Link href="/contact">
               <Button variant="outline">Consult Our Experts</Button>
             </Link>
           </div>
         </AnimateOnScroll>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }
-
