@@ -322,7 +322,7 @@ function ClientsSection() {
             {clients.map((logo, index) => (
               <div
                 key={`client-dup-${index}`}
-                className="flex items-center justify-center w-[220px] max-h-[120px] shrink-0"
+                className="flex items-center justify-center w-[220px] max-h-[140px] shrink-0"
               >
                 <Image
                   src={`/images/${logo}`}
