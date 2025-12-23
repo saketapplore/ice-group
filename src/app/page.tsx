@@ -66,43 +66,45 @@ function CountUpNumber({ target, duration = 3000 }: { target: number; duration?:
 
 function TestimonialCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
+
   const testimonials = [
     {
       text: "I wanted to express my sincere gratitude for your exceptional support in conducting a successful budget meeting. Your team's coordination during check-in, check-out and daily agenda execution was invaluable.",
       author: "Division Head",
-      company: "Leading Healthcare & Pharma organization"
+      company: "Leading Healthcare & Pharma organization",
     },
     {
       text: "Flawless execution and seamless coordination - the ICE team made our Annual Meet a huge success. Despite last-minute changes, everything was handled beautifully with professionalism and calm.",
       author: "Deputy Manager",
-      company: "Leading Global Tech Foundation"
+      company: "Leading Global Tech Foundation",
     },
     {
       text: "The Thailand incentive was a perfect blend of adventure, relaxation, and impeccable arrangements. From travel to stay to on-ground experiences - everything was 10/10. Truly memorable.",
       author: "Regional Partner",
-      company: "BFSI sector"
+      company: "BFSI sector",
     },
     {
       text: "Thank you to the entire ICE team for delivering outstanding services and making our global conference in Budapest a success. We have received immensely positive feedback on every aspect.",
       author: "Senior Business Leader",
-      company: "Global Pharma conglomerate"
+      company: "Global Pharma conglomerate",
     },
     {
       text: "Your team's support and coordination made our internal meet an absolute success. Grateful for your proactive approach and seamless execution.",
       author: "Division Head",
-      company: "FMCG & Consumer Business Unit"
-    }
+      company: "FMCG & Consumer Business Unit",
+    },
   ];
 
-  // Duplicate testimonials for seamless loop
-  const duplicatedTestimonials = [...testimonials, ...testimonials.slice(0, 2)];
+  const duplicatedTestimonials = [
+    ...testimonials,
+    ...testimonials.slice(0, 2),
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => {
-        const next = prev + 1;
-        return next >= testimonials.length ? 0 : next;
-      });
+      setCurrentIndex((prev) =>
+        prev + 1 >= testimonials.length ? 0 : prev + 1
+      );
     }, 5000);
 
     return () => clearInterval(interval);
@@ -113,15 +115,50 @@ function TestimonialCarousel() {
   const translateX = currentIndex * (cardWidth + gap);
 
   return (
-    <div className={styles.testimonialCarousel}>
-      <div className={styles.testimonialTrack} style={{ transform: `translateX(-${translateX}px)` }}>
+    <div className="relative w-full max-w-[817px] mx-auto mt-10 overflow-hidden">
+      {/* Track */}
+      <div
+        className="flex gap-5 transition-transform duration-[600ms] ease-[cubic-bezier(0.4,0,0.2,1)] will-change-transform"
+        style={{ transform: `translateX(-${translateX}px)` }}
+      >
         {duplicatedTestimonials.map((testimonial, index) => (
-          <div key={index} className={styles.testimonialCard}>
-            <div className={styles.testimonialContent}>
-              <p className={styles.testimonialText}>{testimonial.text}</p>
-              <div className={styles.testimonialAuthor}>
-                <div className={styles.testimonialAuthorName}>{testimonial.author}</div>
-                <div className={styles.testimonialCompany}>{testimonial.company}</div>
+          <div
+            key={index}
+            className="
+              w-[259px] min-w-[259px] max-w-[259px]
+              rounded-[20px]
+              p-[2px]
+              bg-gradient-to-br from-orange-500 to-purple-600
+              shrink-0
+            "
+          >
+            <div
+              className="
+                relative
+                h-[259px]
+                rounded-[18px]
+                bg-[linear-gradient(135deg,#000000_0%,#1a1a1a_30%,#2a2a2a_50%,#1a1a1a_70%,#000000_100%)]
+                backdrop-blur-md
+                p-[27px_22px]
+                flex flex-col justify-between items-center
+                text-center
+                overflow-hidden
+                animate-[fadeInUp_0.8s_ease-out]
+              "
+            >
+              {/* Text */}
+              <p className="text-[0.75rem] leading-[1.6] text-white/95 line-clamp-5">
+                {testimonial.text}
+              </p>
+
+              {/* Author */}
+              <div className="mt-auto w-full">
+                <div className="text-[0.8rem] font-bold text-white mb-1">
+                  {testimonial.author}
+                </div>
+                <div className="text-[0.7rem] text-white/70 font-medium">
+                  {testimonial.company}
+                </div>
               </div>
             </div>
           </div>
@@ -130,6 +167,298 @@ function TestimonialCarousel() {
     </div>
   );
 }
+
+
+
+function IntroSection() {
+  return (
+    <section
+      className="
+        relative
+        py-[80px] md:py-[100px]
+        bg-[linear-gradient(135deg,#454545_0%,#000000_30%,#000000_100%)]
+        text-white
+        overflow-hidden
+      "
+    >
+      <div className="relative z-10 mx-auto max-w-7xl px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-12 lg:gap-16 items-center">
+
+          {/* LEFT CONTENT */}
+          <div className="animate-fadeInLeft">
+            <p className="uppercase tracking-[0.12em] font-bold text-orange-400 text-lg mb-4">
+              <span className="bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 bg-clip-text text-transparent">
+                Welcome
+              </span>
+            </p>
+
+            <h2 className="text-3xl md:text-4xl lg:text-[2.6rem] font-bold leading-tight mb-5">
+              Experiences that move people and brands forward.
+            </h2>
+
+            <p className="text-white/70 text-base md:text-[1.05rem] leading-relaxed max-w-[720px]">
+              We design and deliver comprehensive MICE solutions: from corporate
+              events and conferences to incentive travel and global expeditions.
+              Our teams blend strategy, creativity, and precise execution to make
+              every moment memorable. Whether it&apos;s planning your next corporate
+              gathering or orchestrating travel experiences across the world, we
+              ensure customer delight at every step.
+            </p>
+
+            {/* CTA ACTIONS */}
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Link
+                href="/contact"
+                className="
+                  inline-flex items-center justify-center
+                  px-6 py-3 rounded-xl
+                  font-semibold text-white
+                  bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400
+                  shadow-lg shadow-purple-500/30
+                  transition-all duration-300
+                  hover:-translate-y-1 hover:shadow-xl
+                "
+              >
+                Plan Your Experience
+              </Link>
+
+              <Link
+                href="/about"
+                className="
+                  inline-flex items-center justify-center
+                  px-6 py-3 rounded-xl
+                  font-semibold text-white
+                  border border-white/20
+                  backdrop-blur
+                  transition-all duration-300
+                  hover:bg-white/10 hover:-translate-y-1
+                "
+              >
+                Learn about our approach
+              </Link>
+            </div>
+          </div>
+
+          {/* RIGHT IMAGE */}
+          <div className="animate-fadeInRight">
+            <div className="relative w-full h-[260px] sm:h-[320px] lg:h-[360px] rounded-xl overflow-hidden bg-black shadow-xl transition-transform duration-300 hover:-translate-y-2">
+              <Image
+                src="/images/11.webp"
+                alt="MICE solutions and corporate events"
+                fill
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="object-cover transition-transform duration-500 hover:scale-105"
+                priority
+              />
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+const clients = [
+  "Untitled-1-01.png",
+  "Untitled-1-02.png",
+  "Untitled-1-03.png",
+  "Untitled-1-04.png",
+  "Untitled-1-05.png",
+  "Untitled-1-06.png",
+  "Untitled-1-07.png",
+  "Untitled-1-08.png",
+  "Untitled-1-09.png",
+  "Untitled-1-10.png",
+  "Untitled-1-11.png",
+  "Untitled-1-12.png",
+  "Untitled-1-13.png",
+  "Untitled-1-14.png",
+  "Untitled-1-15.png",
+  "Untitled-1-16.png",
+  "Untitled-1-17.png",
+  "Untitled-1-18.png",
+  "Untitled-1-19.png",
+  "Untitled-1-20.png",
+  "Untitled-1-21.png",
+];
+
+function ClientsSection() {
+  return (
+    <section className="relative py-20 bg-[#fafafa] overflow-hidden animate-fadeIn">
+      <div className="mx-auto max-w-7xl px-6 flex flex-col items-center gap-10">
+
+        {/* Title */}
+        <div className="text-center animate-fadeInLeft">
+          <h2 className="text-4xl font-bold bg-white px-8 py-4 rounded-xl shadow-md">
+            <span className="bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 bg-clip-text text-transparent">
+              Our Prominent Patrons
+            </span>
+          </h2>
+        </div>
+
+        {/* Logos wrapper */}
+        <div className="relative w-full overflow-hidden">
+          <div className="flex gap-6 w-max animate-scrollClients">
+
+            {/* First set */}
+            {clients.map((logo, index) => (
+              <div
+                key={`client-${index}`}
+                className="flex items-center justify-center w-[220px] max-h-[140px] shrink-0"
+              >
+                <Image
+                  src={`/images/${logo}`}
+                  alt={`Client ${index + 1}`}
+                  width={220}
+                  height={140}
+                  className="object-contain"
+                />
+              </div>
+            ))}
+
+            {/* Duplicate set for seamless loop */}
+            {clients.map((logo, index) => (
+              <div
+                key={`client-dup-${index}`}
+                className="flex items-center justify-center w-[220px] max-h-[120px] shrink-0"
+              >
+                <Image
+                  src={`/images/${logo}`}
+                  alt={`Client duplicate ${index + 1}`}
+                  width={220}
+                  height={140}
+                  className="object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
+
+
+function CTASection() {
+  return (
+    <section
+      className="
+        relative
+        py-[90px] pb-[40px]
+        bg-[linear-gradient(135deg,#454545_0%,#000000_35%,#000000_100%)]
+        overflow-hidden
+      "
+    >
+      {/* Top gradient overlay */}
+      <div
+        className="
+          pointer-events-none
+          absolute top-0 left-0 right-0 h-[150px]
+          bg-[linear-gradient(180deg,#454545_0%,rgba(69,69,69,0.8)_15%,rgba(69,69,69,0.5)_40%,rgba(69,69,69,0.2)_70%,transparent_100%)]
+          blur-[2px]
+          z-[1]
+        "
+      />
+
+      <div className="relative z-[2] mx-auto max-w-7xl px-6">
+        {/* CTA CARD */}
+        <div
+          className="
+            flex flex-wrap items-center justify-between gap-[18px]
+            rounded-[18px]
+            border border-[rgba(246,140,32,0.2)]
+            bg-[rgba(0,0,0,0.8)]
+            p-8
+          "
+        >
+          <div className="max-w-[780px]">
+            <h2 className="mb-2 text-3xl font-bold text-white">
+              <span className="bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 bg-clip-text text-transparent">
+                Ready to plan your next event?
+              </span>
+            </h2>
+
+            <p className="text-[1.05rem] leading-[1.7] text-[#a7a7a7]">
+              Tell us your objectives and we&apos;ll design an experience—whether
+              it&apos;s an event or a travel journey—that exceeds expectations.
+            </p>
+          </div>
+
+          <Link
+            href="/contact"
+            className="
+              inline-flex items-center justify-center
+              rounded-xl
+              px-6 py-3
+              text-base font-semibold text-white
+              whitespace-nowrap
+              bg-[linear-gradient(135deg,var(--color-purple)_0%,var(--color-pink)_50%,var(--color-orange)_100%)]
+              shadow-[0_4px_16px_rgba(121,27,84,0.3)]
+              transition-all duration-300
+              hover:-translate-y-[2px]
+              hover:shadow-[0_6px_20px_rgba(121,27,84,0.4)]
+              hover:bg-[linear-gradient(135deg,var(--color-orange)_0%,var(--color-pink)_50%,var(--color-purple)_100%)]
+            "
+          >
+            Talk to Our Team
+          </Link>
+        </div>
+
+        {/* AFFILIATIONS */}
+        <div
+          className="
+            mt-[60px]
+            flex flex-col items-center justify-center gap-6
+            text-center
+          "
+        >
+          <h3
+            className="
+              text-[1.5rem]
+              font-bold
+              tracking-[2px]
+              uppercase
+              text-[40px]
+              bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 bg-clip-text text-transparent
+            "
+          >
+            Affiliations
+          </h3>
+
+          <Image
+            src="/images/Screenshot_2025-12-22_124826-removebg-preview.png"
+            alt="Certifications and Accreditations"
+            width={800}
+            height={150}
+            className="
+              max-h-[200px]
+              w-auto
+              object-contain
+              transition-opacity duration-300
+              hover:opacity-90
+            "
+          />
+        </div>
+      </div>
+
+      {/* Responsive spacing */}
+      {/* <style jsx>{`
+        @media (max-width: 768px) {
+          section {
+            padding-top: 60px;
+            padding-bottom: 80px;
+          }
+        }
+      `}</style> */}
+    </section>
+  );
+}
+
+
 
 export default function Home() {
   const videoRef = useRef<HTMLDivElement>(null);
@@ -219,8 +548,17 @@ export default function Home() {
         <div className={`container ${styles.heroContent}`}>
           <div className={styles.heroInner}>
             <div className={styles.heroCopy}>
-              <div className={styles.heroActions}>
-                <Link href="/contact" className={styles.planExperienceBox}>
+              <div className="relative z-[2] w-full pb-10">
+                <Link
+                  href="/contact"
+                  className="
+            ml-6 inline-flex
+            px-6 py-3 rounded-xl
+            text-white font-semibold
+            bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400
+            shadow-lg transition hover:-translate-y-0.5
+          "
+                >
                   Plan your experience →
                 </Link>
               </div>
@@ -229,99 +567,102 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={styles.clientsSection}>
-        <div className="container">
-          <div className={styles.clientsContainer}>
-            <AnimateOnScroll animation="fadeInLeft" delay={0.1}>
-              <div className={styles.clientsContent}>
-                <h2 className={styles.clientsTitle}>
-                  <span className="text-gradient">Our Prominent Patrons</span>
-                </h2>
-              </div>
-            </AnimateOnScroll>
-            <div className={styles.clientsLogosWrapper}>
-              <div className={styles.clientsTrack}>
-                {[
-                  { name: "USHA", logo: "/images/USHA.png" },
-                  { name: "Unilever", logo: "/images/uniliver.jpg" },
-                  { name: "BAJAJ Allianz", logo: "/images/Bajaj.png" },
-                  { name: "Glenmark", logo: "/images/Glenmark.png" },
-                  { name: "ONGC", logo: "/images/ONGC.png" },
-                  { name: "Tech Mahindra", logo: "/images/tech mahindra.png" },
-                  { name: "PNB MetLife", logo: "/images/PNB.png" },
-                  { name: "SHRIRAM General Insurance", logo: "/images/s.png" },
-                  { name: "Abbott", logo: "/images/abbott.png" },
-                ].map((client, index) => (
-                  <div key={`${client.name}-${index}`} className={styles.clientLogoCard}>
-                    <Image
-                      src={client.logo}
-                      alt={client.name}
-                      fill
-                      className={styles.clientLogoImage}
-                      sizes="fit-content"
-                    />
-                  </div>
-                ))}
-                {/* Duplicate for seamless scrolling */}
-                {[
-                  { name: "USHA", logo: "/images/USHA.png" },
-                  { name: "Unilever", logo: "/images/uniliver.jpg" },
-                  { name: "BAJAJ Allianz", logo: "/images/Bajaj.png" },
-                  { name: "Glenmark", logo: "/images/Glenmark.png" },
-                  { name: "ONGC", logo: "/images/ONGC.png" },
-                  { name: "Tech Mahindra", logo: "/images/tech mahindra.png" },
-                  { name: "PNB MetLife", logo: "/images/PNB.png" },
-                  { name: "SHRIRAM General Insurance", logo: "/images/s.png" },
-                  { name: "Abbott", logo: "/images/abbott.png" },
-                ].map((client, index) => (
-                  <div key={`${client.name}-dup-${index}`} className={styles.clientLogoCard}>
-                    <Image
-                      src={client.logo}
-                      alt={client.name}
-                      fill
-                      className={styles.clientLogoImage}
-                      sizes=""
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ClientsSection />
 
-      <section id="events" className={styles.eventsSection}>
-        <div className="container">
-          <AnimateOnScroll animation="fadeInUp" delay={0.1}>
-            <div className={styles.sectionHeader}>
-              <h2 className={styles.sectionTitle}><span className="text-gradient">Events</span></h2>
-              <p className={styles.sectionSubtitle}>Glimpse into our past events</p>
-            </div>
-          </AnimateOnScroll>
-          <div className={styles.eventGrid}>
+      <section
+        id="events"
+        className="
+    relative
+    w-screen
+    py-[90px] pb-[60px]
+    text-white
+    bg-[linear-gradient(45deg,#454545_0%,#000000_40%,#000000_100%)]
+    overflow-hidden
+    left-1/2 right-1/2
+    -ml-[50vw] -mr-[50vw]
+  "
+      >
+        {/* top gradient fade */}
+        <div
+          className="
+      pointer-events-none
+      absolute top-0 left-0 right-0 h-[120px]
+      bg-[linear-gradient(180deg,#000000_0%,rgba(0,0,0,0.8)_40%,rgba(0,0,0,0.4)_70%,transparent_100%)]
+      blur-[1px]
+    "
+        />
+
+        {/* bottom gradient fade */}
+        <div
+          className="
+      pointer-events-none
+      absolute bottom-0 left-0 right-0 h-[120px]
+      bg-[linear-gradient(180deg,transparent_0%,rgba(69,69,69,0.3)_30%,rgba(69,69,69,0.7)_60%,#454545_100%)]
+      blur-[1px]
+    "
+        />
+
+        <div className="relative z-10 mx-auto max-w-7xl px-6">
+          {/* Section header */}
+          <div className="text-center mb-[60px]">
+            <h2 className="text-[3rem] font-bold mb-4">
+              <span className="bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 bg-clip-text text-transparent">
+                Events
+              </span>
+            </h2>
+            <p className="text-white/90 text-[1.1rem]">
+              Glimpse into our past events
+            </p>
+          </div>
+
+          {/* Event grid */}
+          <div className="grid gap-[18px] grid-cols-[repeat(auto-fit,minmax(240px,1fr))]">
             {events.map((event, index) => (
-              <AnimateOnScroll key={event.title} animation="fadeInUp" delay={0.1 + index * 0.1}>
-                <div className={styles.eventCard}>
-                  <div className={styles.eventImageWrap}>
-                    <Image
-                      src={event.image}
-                      alt={event.title}
-                      fill
-                      sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 100vw"
-                      style={{ objectFit: "contain" }}
-                    />
-                  </div>
-                  <div className={styles.eventBody}>
-                    <p className={styles.muted}>{event.date}</p>
-                    <h3>{event.title}</h3>
-                    <p className={styles.textLink}>Featured event</p>
-                  </div>
+              <div
+                key={event.title}
+                className="
+            flex flex-col
+            rounded-[14px]
+            bg-black
+            border border-white/10
+            overflow-hidden
+            shadow-[0_12px_38px_rgba(0,0,0,0.35)]
+            transition-all duration-300
+            hover:-translate-y-2 hover:scale-[1.02]
+            hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]
+            hover:border-white/20
+          "
+                style={{ animationDelay: `${0.1 + index * 0.1}s` }}
+              >
+                {/* image */}
+                <div className="relative h-[160px] bg-[#454545] p-3 flex items-center justify-center overflow-hidden transition-transform duration-300 hover:scale-[1.05]">
+                  <Image
+                    src={event.image}
+                    alt={event.title}
+                    fill
+                    sizes="(min-width:1024px) 25vw, (min-width:768px) 33vw, 100vw"
+                    className="object-cover transition-transform duration-300"
+                  />
                 </div>
-              </AnimateOnScroll>
+
+                {/* body */}
+                <div className="p-[14px]">
+                  <p className="text-white/80 text-sm mb-1">
+                    {event.date}
+                  </p>
+                  <h3 className="text-white font-semibold mb-1">
+                    {event.title}
+                  </h3>
+                  <p className="text-white/90 text-sm font-medium">
+                    Featured event
+                  </p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
+
 
       <section className={styles.statsSection}>
         <div className="container">
@@ -362,7 +703,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={styles.introSection}>
+      {/* <section className={styles.introSection}>
         <div className="container">
           <div className={styles.introContent}>
             <div className={styles.introLayout}>
@@ -399,38 +740,76 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+      <IntroSection/>
 
-      <section className={styles.servicesSection}>
-        <div className="container">
-          <AnimateOnScroll animation="fadeInUp" delay={0.1}>
-            <div className={styles.sectionHeader}>
-              <h2 className={styles.sectionTitle}>Our <span className="text-gradient">Expertise</span></h2>
-              <p className={styles.sectionSubtitle}>Comprehensive MICE solutions tailored to your business goals.</p>
-            </div>
-          </AnimateOnScroll>
+      <section className="relative py-[100px] bg-[#fafafa] text-black animate-fadeIn">
+        <div className="mx-auto max-w-7xl px-6">
 
-          <div className={styles.grid}>
+          {/* Section Header */}
+          <div className="text-center mb-16 animate-fadeInUp">
+            <h2 className="text-[3rem] font-bold mb-4">
+              Our{" "}
+              <span className="bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 bg-clip-text text-transparent">
+                Expertise
+              </span>
+            </h2>
+
+            <p className="text-[1.1rem] text-black/70">
+              Comprehensive MICE solutions tailored to your business goals.
+            </p>
+          </div>
+
+          {/* Services Grid */}
+          <div className="grid gap-9 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service, index) => (
-              <AnimateOnScroll key={service.title} animation="fadeInUp" delay={0.1 + index * 0.08}>
+              <div
+                key={service.title}
+                className="animate-fadeInUp"
+                style={{ animationDelay: `${0.1 + index * 0.08}s` }}
+              >
                 <ServiceCard {...service} />
-              </AnimateOnScroll>
+              </div>
             ))}
           </div>
+
         </div>
       </section>
 
-      <section className={styles.testimonialsSection}>
-        <div className="container">
+
+
+      <section
+        className="
+    relative
+    py-[60px]
+    overflow-hidden
+    text-white
+    bg-[linear-gradient(135deg,#000000_0%,#1a1a1a_30%,#2a2a2a_50%,#1a1a1a_70%,#000000_100%)]
+  "
+      >
+        <div className="relative z-10 mx-auto max-w-7xl px-6">
+
+          {/* Section Header */}
           <AnimateOnScroll animation="fadeInUp" delay={0.1}>
-            <div className={styles.sectionHeader}>
-              <h2 className={`${styles.sectionTitle} text-gradient`}>Testimonials</h2>
-              <p className={styles.sectionSubtitle}>Discover what our satisfied clients have to say about their experiences with our services.</p>
+            <div className="text-center mb-10">
+              <h2 className="text-[3rem] font-bold mb-4 text-white">
+                <span className="bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 bg-clip-text text-transparent">
+                  Testimonials
+                </span>
+              </h2>
+
+              <p className="text-white/80 text-[1.1rem] max-w-[700px] mx-auto">
+                Discover what our satisfied clients have to say about their experiences with our services.
+              </p>
             </div>
           </AnimateOnScroll>
+
+          {/* Carousel */}
           <TestimonialCarousel />
+
         </div>
       </section>
+
 
       <section className={styles.valueSection}>
         <div className="container">
@@ -452,38 +831,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={styles.ctaSection}>
-        <div className="container">
-          <AnimateOnScroll animation="scaleIn" delay={0.1}>
-            <div className={styles.ctaCard}>
-              <div>
-                <h2><span className="text-gradient">Ready to plan your next event?</span></h2>
-                <p className={styles.muted}>Tell us your objectives and we&apos;ll design an experience—whether it&apos;s an event or a travel journey—that exceeds expectations.</p>
-              </div>
-              <Link href="/contact" className={styles.planExperienceBox}>
-                Talk to Our Team
-              </Link>
-            </div>
-          </AnimateOnScroll>
-          <div className={styles.certificationsSection}>
-            <h3 className={styles.certificationsHeading}>AFFILIATIONS</h3>
-            <Image
-              src="/images/Screenshot_2025-12-22_124826-removebg-preview.png"
-              alt="Certifications and Accreditations"
-              width={800}
-              height={150}
-              className={styles.certificationBadge}
-            />
-            {/* <Image
-              src="/images/certification-badge.png"
-              alt="Certifications and Accreditations"
-              width={800}
-              height={150}
-              className={styles.certificationBadge}
-            /> */}
-          </div>
-        </div>
-      </section>
+      <CTASection />
     </main>
   );
 }

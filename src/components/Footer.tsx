@@ -1,113 +1,173 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import Logo from './Logo';
-import Button from './Button';
-import styles from './Footer.module.css';
+import Link from "next/link";
+import Image from "next/image";
+import Button from "./Button";
+import { MapPin, Phone, Mail } from "lucide-react";
+
 
 export default function Footer() {
     return (
-        <footer className={styles.footer}>
-            <div className={`container ${styles.footerContainer}`}>
-                <div className={styles.column}>
-                    <Link href="/" className={styles.logoLink}>
-                        <Logo variant="default" />
-                    </Link>
-                    <div className={styles.stayUpdatedSection}>
-                        <h3 className={styles.stayUpdatedTitle}>Subscribe to Newsletter</h3>
-                        <form className={styles.newsletterForm}>
-                            <input
-                                type="email"
-                                placeholder="Enter your work email"
-                                className={styles.emailInput}
-                            />
-                            <div>
-                                <Button variant="primary" style={{ padding: '10px 20px', fontSize: '0.9rem' }}>Subscribe Now</Button>
-                            </div>
-                        </form>
+        <footer className="bg-black border-t border-white/10 pt-20 pb-8">
+            {/* Main container */}
+            <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 gap-y-14 gap-x-20 md:grid-cols-2 lg:grid-cols-[3fr_1fr_1fr_8fr]">
+
+                {/* COLUMN 1 — LOGO + NEWSLETTER */}
+                <div className="flex flex-col items-start gap-6">
+                    {/* Logo (LEFT ALIGNED) */}
+                    <Image
+                        src="/images/logo.png"
+                        alt="ICE Group Logo"
+                        width={180}
+                        height={60}
+                        priority
+                        unoptimized
+                        className="object-contain self-start -ml-4"
+                    />
+
+                    {/* Newsletter */}
+                    <div className="flex flex-col gap-4 w-full max-w-xs">
+                        <h3 className="text-white font-semibold text-lg">
+                            Subscribe to Newsletter
+                        </h3>
+
+                        <input
+                            type="email"
+                            placeholder="Enter your work email"
+                            className="w-full rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm text-white placeholder:text-white/50 outline-none focus:border-white/40"
+                        />
+
+                        <Button
+                            variant="primary"
+                            className="self-start"
+                            style={{ padding: "8px 22px", fontSize: "0.85rem" }}
+                        >
+                            Subscribe Now
+                        </Button>
                     </div>
                 </div>
 
-                <div className={styles.column}>
-                    <h3>Company</h3>
-                    <Link href="/about">About Us</Link>
-                    <Link href="/services">Services</Link>
-                    <Link href="/gallery">Gallery</Link>
+                {/* COLUMN 2 — COMPANY */}
+                <div className="flex flex-col gap-4">
+                    <h3 className="text-white font-semibold text-lg">Company</h3>
+
+                    <Link href="/about" className="text-white/70 hover:text-white">
+                        About Us
+                    </Link>
+                    <Link href="/services" className="text-white/70 hover:text-white">
+                        Services
+                    </Link>
+                    <Link href="/gallery" className="text-white/70 hover:text-white">
+                        Gallery
+                    </Link>
                 </div>
 
-                <div className={styles.column}>
-                    <h3>Connect</h3>
-                    <Link href="/newsletter">Newsletter</Link>
-                    <Link href="/contact">Contact Us</Link>
-                    <div className={styles.socialSection}>
-                        <h4 className={styles.socialTitle}>Follow us on :</h4>
-                        <div className={styles.socialIcons}>
-                            <a href="https://www.facebook.com/ICEGROUPINDIA/" target="_blank" rel="noopener noreferrer" className={`${styles.socialIcon} ${styles.facebookIcon}`} aria-label="Facebook">
-                                <Image src="/facebook-icon.svg" alt="Facebook" width={20} height={20} />
-                            </a>
-                            <a href="https://x.com/Travelmgmnt" target="_blank" rel="noopener noreferrer" className={`${styles.socialIcon} ${styles.twitterIcon}`} aria-label="Twitter">
-                                <Image src="/twitter-icon.svg" alt="Twitter" width={20} height={20} />
-                            </a>
-                            <a href="https://www.instagram.com/icegroupindia/" target="_blank" rel="noopener noreferrer" className={`${styles.socialIcon} ${styles.instagramIcon}`} aria-label="Instagram">
-                                <Image src="/instagram-icon.svg" alt="Instagram" width={20} height={20} />
-                            </a>
+                {/* COLUMN 3 — CONNECT */}
+                <div className="flex flex-col gap-4">
+                    <h3 className="text-white font-semibold text-lg">Connect</h3>
+
+                    <Link href="/newsletter" className="text-white/70 hover:text-white">
+                        Newsletter
+                    </Link>
+                    <Link href="/contact" className="text-white/70 hover:text-white">
+                        Contact Us
+                    </Link>
+
+                    <div className="mt-4">
+                        <p className="text-white font-semibold mb-3">Follow us on :</p>
+                        <div className="flex gap-4">
+                            {/* Facebook */}
+
+                            <Image src="/facebook.svg" alt="Facebook" width={20} height={20} />
+
+
+                            {/* LinkedIn (REPLACED TWITTER) */}
+
+                            <Image src="/linkedin-icon.svg" alt="LinkedIn" width={20} height={20} />
+
+
+                            {/* Instagram */}
+
+                            <Image src="/instagram.svg" alt="Instagram" width={18} height={18} />
+
                         </div>
                     </div>
                 </div>
 
-                <div className={styles.column}>
-                    <h3>Get in Touch</h3>
-                    <div className={styles.footerOfficesGrid}>
-                        {/* India Office */}
-                        <div className={styles.footerOfficeSection}>
-                            <div className={styles.footerOfficeHeader}>
-                                <Image src="/location-pin.svg" alt="Location" width={16} height={16} className={styles.footerIcon} />
-                                <h4 className={styles.footerOfficeTitle}>India Office :</h4>
-                            </div>
-                            <p className={styles.footerAddress}>
-                                G-23 (GF), Aashirwad Commercial Complex, Green Park,<br />
+                {/* COLUMN 4 — GET IN TOUCH */}
+                <div className="flex flex-col gap-6">
+                    <h3 className="text-white font-semibold text-lg">Get in Touch</h3>
+
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                        {/* India */}
+                        <div className="flex flex-col text-sm text-white/70">
+                            <p className="text-white font-semibold flex items-center gap-2">
+                                <MapPin size={16} /> India Office :
+                            </p>
+
+                            <p>
+                                G-23 (GF), Aashirwad Commercial Complex, Green Park,
+                                <br />
                                 New Delhi - 110016, INDIA
                             </p>
-                            <div className={styles.footerContactItem}>
-                                <Image src="/phone-icon.svg" alt="Phone" width={16} height={16} className={styles.footerIcon} />
-                                <span className={styles.footerContactLabel}>Call :</span>
-                                <a href="tel:01142211111" className={styles.footerContactLink}>011 - 4221 1111</a>
-                            </div>
-                            <div className={styles.footerContactItem}>
-                                <Image src="/email-icon.svg" alt="Email" width={16} height={16} className={styles.footerIcon} />
-                                <span className={styles.footerContactLabel}>Email :</span>
-                                <a href="mailto:info@icegroupindia.com" className={styles.footerContactLink}>info@icegroupindia.com</a>
-                            </div>
+
+                            <a
+                                href="tel:01142211111"
+                                className="flex items-center gap-2 hover:text-white transition mb-2"
+                            >
+                                <Phone size={14} />
+                                Call : 011 - 4221 1111
+                            </a>
+
+                            <a
+                                href="mailto:info@icegroupindia.com"
+                                className="flex items-center gap-2 hover:text-white transition"
+                            >
+                                <Mail size={14} />
+                                Email : info@icegroupindia.com
+                            </a>
                         </div>
 
-                        {/* UAE Office */}
-                        <div className={styles.footerOfficeSection}>
-                            <div className={styles.footerOfficeHeader}>
-                                <Image src="/location-pin.svg" alt="Location" width={16} height={16} className={styles.footerIcon} />
-                                <h4 className={styles.footerOfficeTitle}>UAE Office :</h4>
-                            </div>
-                            <p className={styles.footerAddress}>
-                                BUILDING A1 DUBAI DIGITAL PARK DUBAI SILICON OASIS<br />
-                                DUBAI, UNITED ARAB EMIRATES<br />
+
+                        {/* UAE */}
+                        <div className="flex flex-col text-sm text-white/70">
+                            <p className="text-white font-semibold flex items-center gap-2">
+                                <MapPin size={16} /> UAE Office :
+                            </p>
+
+                            <p>
+                                BUILDING A1 DUBAI DIGITAL PARK
+                                <br />
+                                DUBAI SILICON OASIS
+                                <br />
+                                DUBAI, UNITED ARAB EMIRATES
+                                <br />
                                 P.O.Box 342001
                             </p>
-                            <div className={styles.footerContactItem}>
-                                <Image src="/phone-icon.svg" alt="Phone" width={16} height={16} className={styles.footerIcon} />
-                                <span className={styles.footerContactLabel}>Call :</span>
-                                <a href="tel:01142211111" className={styles.footerContactLink}>011 - 4221 1111</a>
-                            </div>
-                            <div className={styles.footerContactItem}>
-                                <Image src="/email-icon.svg" alt="Email" width={16} height={16} className={styles.footerIcon} />
-                                <span className={styles.footerContactLabel}>Email :</span>
-                                <a href="mailto:mohit.khanna@icegroupindia.com" className={styles.footerContactLink}>mohit.khanna@icegroupindia.com</a>
-                            </div>
-                        </div>
+
+                            <a
+                                href="tel:01142211111"
+                                className="flex items-center gap-2 hover:text-white transition mb-2"
+                            >
+                                <Phone size={14} />
+                                Call : 011 - 4221 1111
+                            </a>
+
+
+                            <a
+                                href="mailto:mohit.khanna@icegroupindia.com"
+                                className="flex items-center gap-2 hover:text-white transition"
+                            >
+                                <Mail size={14}  className="lg:-mt-5"/>
+                                Email : mohit.khanna@icegroupindia.com
+                            </a></div>
+
+
                     </div>
                 </div>
             </div>
-            <div className={styles.copyright}>
-                <div className="container">
-                    &copy; {new Date().getFullYear()} ICE Group. All rights reserved.
-                </div>
+
+            {/* COPYRIGHT */}
+            <div className="mt-12 border-t border-white/10 pt-6 text-center text-sm text-white/50">
+                © {new Date().getFullYear()} ICE Group. All rights reserved.
             </div>
         </footer>
     );

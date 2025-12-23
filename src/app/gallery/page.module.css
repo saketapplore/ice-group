@@ -4,7 +4,7 @@
 }
 
 .gallerySection {
-  padding: 130px 0 0 0; /* offset for fixed header so heading is fully visible */
+  padding: 130px 0 130px 0; /* offset for fixed header so heading is fully visible */
 }
 
 .galleryTitle {
@@ -154,7 +154,7 @@
 
 @media (max-width: 768px) {
   .gallerySection {
-    padding: 110px 0 0 0;
+    padding: 110px 0 110px 0;
   }
 
   .galleryTitle {
@@ -193,7 +193,7 @@
 
 @media (max-width: 480px) {
   .gallerySection {
-    padding: 100px 0 0 0;
+    padding: 100px 0 100px 0;
   }
 
   .galleryTitle {

@@ -31,9 +31,21 @@
   --font-secondary: var(--font-poppins), sans-serif;
 
   /* Gradients - Purple to Orange (vertical) */
-  --gradient-main: linear-gradient(180deg, var(--color-purple) 0%, var(--color-orange) 100%);
-  --gradient-text: linear-gradient(to right, var(--color-purple), var(--color-orange));
-  --gradient-hero: linear-gradient(180deg, var(--color-purple) 0%, var(--color-orange) 100%);
+  --gradient-main: linear-gradient(
+    180deg,
+    var(--color-purple) 0%,
+    var(--color-orange) 100%
+  );
+  --gradient-text: linear-gradient(
+    to right,
+    var(--color-purple),
+    var(--color-orange)
+  );
+  --gradient-hero: linear-gradient(
+    180deg,
+    var(--color-purple) 0%,
+    var(--color-orange) 100%
+  );
 }
 
 html {
@@ -43,7 +55,8 @@ html {
 html,
 body {
   width: 100%;
-  max-width: 100vw;
+  margin: 0;
+  padding: 0;
   overflow-x: hidden;
   background: var(--color-black);
   color: var(--text-light);
@@ -85,9 +98,16 @@ main {
   width: 17px;
   height: 17px;
   border-radius: 999px;
-  background:
-    radial-gradient(circle, rgba(246, 140, 32, 0.95) 0%, rgba(246, 140, 32, 0.0) 65%),
-    radial-gradient(circle, rgba(121, 27, 84, 0.85) 0%, rgba(121, 27, 84, 0.0) 85%);
+  background: radial-gradient(
+      circle,
+      rgba(246, 140, 32, 0.95) 0%,
+      rgba(246, 140, 32, 0) 65%
+    ),
+    radial-gradient(
+      circle,
+      rgba(121, 27, 84, 0.85) 0%,
+      rgba(121, 27, 84, 0) 85%
+    );
   box-shadow: 0 0 32px rgba(246, 140, 32, 0.5);
   opacity: 0.65;
   pointer-events: none;
@@ -102,9 +122,7 @@ main {
   inset: -18px;
   border-radius: inherit;
   border: 2px solid rgba(121, 27, 84, 0.7);
-  box-shadow:
-    0 0 25px rgba(121, 27, 84, 0.6),
-    0 0 55px rgba(246, 140, 32, 0.45);
+  box-shadow: 0 0 25px rgba(121, 27, 84, 0.6), 0 0 55px rgba(246, 140, 32, 0.45);
 }
 
 /* Typography Utilities */
@@ -240,7 +258,8 @@ nextjs-portal,
 
 /* Webflow-style smooth animations */
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -249,7 +268,8 @@ nextjs-portal,
 }
 
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {

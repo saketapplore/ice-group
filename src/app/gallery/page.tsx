@@ -134,7 +134,7 @@ export default function GalleryPage() {
   }, [selectedImage]);
 
   return (
-    <div className={styles.galleryPage}>
+    <div className={styles.galleryPage} >
       <div className="container">
         <section className={styles.gallerySection}>
         <AnimateOnScroll animation="fadeInUp" delay={0.1}>
