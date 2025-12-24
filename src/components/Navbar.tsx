@@ -30,23 +30,18 @@ export default function Navbar() {
         ${isScrolled ? "bg-black/95 backdrop-blur-xl shadow-lg" : "bg-black"}
       `}
         >
-            <div className="mx-auto max-w-7xl px-6 h-[72px] md:h-[88px] flex items-center">
+            <div className="mx-auto max-w-7xl px-6 h-[72px] md:h-[88px] flex items-center justify-between gap-4">
 
                 {/* LEFT — LOGO */}
-                <Link href="/" className="flex items-center shrink-0 -ml-12">
+                <Link href="/" className="-ml-8">
                     <Image
                         src="/images/ice-logo.gif"
                         alt="ICE Group Logo"
-                        width={300}
-                        height={125}
+                        width={350}
+                        height={60}
                         priority
                         unoptimized
-                        className="
-              object-contain
-              h-[100px] w-auto
-              md:h-[56px]
-              lg:h-[150px]
-            "
+                        className="object-contain h-[60px] w-auto md:h-[70px] lg:h-[120px]"
                     />
                 </Link>
 
@@ -55,9 +50,6 @@ export default function Navbar() {
                     {[
                         ["Home", "/"],
                         ["About Us", "/about"],
-                        ["Gallery", "/gallery"],
-                        ["Newsletter", "/newsletter"],
-                        ["Contact Us", "/contact"],
                     ].map(([label, href]) => (
                         <Link
                             key={label}
@@ -94,6 +86,25 @@ export default function Navbar() {
                             </Link>
                         </div>
                     </div>
+
+                    {[
+                        ["Gallery", "/gallery"],
+                        ["Newsletter", "/newsletter"],
+                        ["Contact Us", "/contact"],
+                    ].map(([label, href]) => (
+                        <Link
+                            key={label}
+                            href={href}
+                            className="
+                text-sm font-medium text-white/90
+                px-3 py-2 rounded-md
+                hover:bg-white/10
+                transition
+              "
+                        >
+                            {label}
+                        </Link>
+                    ))}
                 </div>
 
                 {/* RIGHT — BADGE (Desktop) */}
@@ -136,6 +147,36 @@ export default function Navbar() {
                     {[
                         ["Home", "/"],
                         ["About Us", "/about"],
+                    ].map(([label, href]) => (
+                        <Link
+                            key={label}
+                            href={href}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="block px-4 py-3 rounded-lg text-white/90 hover:bg-white/10 transition"
+                        >
+                            {label}
+                        </Link>
+                    ))}
+
+                    <div className="pt-3 pl-4 space-y-2">
+                        <p className="text-white/90 font-medium mb-2">Services</p>
+                        <Link 
+                            href="/services/ice-events" 
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="block text-white/80 text-sm pl-4"
+                        >
+                            Events
+                        </Link>
+                        <Link 
+                            href="/services/mice" 
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="block text-white/80 text-sm pl-4"
+                        >
+                            M.I.C.E
+                        </Link>
+                    </div>
+
+                    {[
                         ["Gallery", "/gallery"],
                         ["Newsletter", "/newsletter"],
                         ["Contact Us", "/contact"],
@@ -149,15 +190,6 @@ export default function Navbar() {
                             {label}
                         </Link>
                     ))}
-
-                    <div className="pt-3 pl-4 space-y-2">
-                        <Link href="/services/ice-events" className="block text-white/80 text-sm">
-                            Events
-                        </Link>
-                        <Link href="/services/mice" className="block text-white/80 text-sm">
-                            M.I.C.E
-                        </Link>
-                    </div>
                 </div>
             )}
         </nav>

@@ -8,7 +8,7 @@ export default function Footer() {
     return (
         <footer className="bg-black border-t border-white/10 pt-20 pb-8">
             {/* Main container */}
-            <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 gap-y-14 gap-x-20 md:grid-cols-2 lg:grid-cols-[3fr_1fr_1fr_8fr]">
+            <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 gap-y-14 gap-x-20 md:grid-cols-2 lg:grid-cols-[3fr_1fr_1fr_10fr]">
 
                 {/* COLUMN 1 — LOGO + NEWSLETTER */}
                 <div className="flex flex-col items-start gap-6">
@@ -17,7 +17,7 @@ export default function Footer() {
                         src="/images/logo.png"
                         alt="ICE Group Logo"
                         width={180}
-                        height={60}
+                        height={80}
                         priority
                         unoptimized
                         className="object-contain self-start -ml-4"
@@ -72,7 +72,7 @@ export default function Footer() {
                     </Link>
 
                     <div className="mt-4">
-                        <p className="text-white font-semibold mb-3">Follow us on :</p>
+                        <p className="text-white font-semibold mb-3 whitespace-nowrap">Follow us on :</p>
 
                         <div className="flex gap-4 items-center">
                             {/* Facebook */}
@@ -148,7 +148,7 @@ export default function Footer() {
 
 
                         {/* UAE */}
-                        <div className="flex flex-col text-sm text-white/70">
+                        <div className="flex flex-col text-sm text-white/70 w-full">
                             <p className="text-white font-semibold flex items-center gap-2">
                                 <MapPin size={16} /> UAE Office :
                             </p>
@@ -174,9 +174,9 @@ export default function Footer() {
 
                             <a
                                 href="mailto:mohit.khanna@icegroupindia.com"
-                                className="flex items-center gap-2 hover:text-white transition"
+                                className="flex items-center gap-2 hover:text-white transition w-full whitespace-nowrap "
                             >
-                                <Mail size={14} className="lg:-mt-5" />
+                                <Mail size={14} className="text-current flex-shrink-0" />
                                 Email : mohit.khanna@icegroupindia.com
                             </a></div>
 

@@ -213,9 +213,10 @@ function IntroSection() {
                   inline-flex items-center justify-center
                   px-6 py-3 rounded-xl
                   font-semibold text-white
-                  bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400
+                  bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 
                   shadow-lg shadow-purple-500/30
                   transition-all duration-300
+                  hover:text-white
                   hover:-translate-y-1 hover:shadow-xl
                 "
               >
@@ -228,10 +229,11 @@ function IntroSection() {
                   inline-flex items-center justify-center
                   px-6 py-3 rounded-xl
                   font-semibold text-white
-                  border border-white/20
-                  backdrop-blur
+                  bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 
+                  shadow-lg shadow-purple-500/30
                   transition-all duration-300
-                  hover:bg-white/10 hover:-translate-y-1
+                  hover:-translate-y-1 hover:shadow-xl
+                  hover:text-white
                 "
               >
                 Learn about our approach
@@ -556,6 +558,7 @@ export default function Home() {
             px-6 py-3 rounded-xl
             text-white font-semibold
             bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400
+            hover:text-white
             shadow-lg transition hover:-translate-y-0.5
           "
                 >
