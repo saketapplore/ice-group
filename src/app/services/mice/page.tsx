@@ -49,7 +49,7 @@ export default function MICEPage() {
     },
     {
       name: "VIP Airport Lounge Access",
-      image: "https://images.unsplash.com/photo-1521737604893-ff996a0ec29e?auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1200&q=80",
     },
   ];
 

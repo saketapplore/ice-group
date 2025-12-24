@@ -10,7 +10,7 @@ const newsletters = [
         title: 'MICE Pulse – Q1 Highlights',
         date: 'March 2025',
         summary: 'Trends from global conferences, incentive travel ideas, and how hybrid formats are evolving.',
-        image: 'https://images.unsplash.com/photo-1551836022-4c4c79ecde16?auto=format&fit=crop&w=800&q=80',
+        image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80',
     },
     {
         title: 'Experience Design Playbook',
