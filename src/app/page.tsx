@@ -403,6 +403,7 @@ function CTASection() {
               transition-all duration-300
               hover:-translate-y-[2px]
               hover:shadow-[0_6px_20px_rgba(121,27,84,0.4)]
+              hover:text-white
               hover:bg-[linear-gradient(135deg,var(--color-orange)_0%,var(--color-pink)_50%,var(--color-purple)_100%)]
             "
           >
