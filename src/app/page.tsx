@@ -385,8 +385,8 @@ function CTASection() {
             </h2>
 
             <p className="text-[1.05rem] leading-[1.7] text-[#a7a7a7]">
-              Tell us your objectives and we&apos;ll design an experience—whether
-              it&apos;s an event or a travel journey—that exceeds expectations.
+              Tell us your objectives and we&apos;ll design an experience whether
+              it&apos;s an event or a travel journey that exceeds expectations.
             </p>
           </div>
 

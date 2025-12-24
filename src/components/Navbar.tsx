@@ -160,15 +160,15 @@ export default function Navbar() {
 
                     <div className="pt-3 pl-4 space-y-2">
                         <p className="text-white/90 font-medium mb-2">Services</p>
-                        <Link 
-                            href="/services/ice-events" 
+                        <Link
+                            href="/services/ice-events"
                             onClick={() => setIsMobileMenuOpen(false)}
                             className="block text-white/80 text-sm pl-4"
                         >
                             Events
                         </Link>
-                        <Link 
-                            href="/services/mice" 
+                        <Link
+                            href="/services/mice"
                             onClick={() => setIsMobileMenuOpen(false)}
                             className="block text-white/80 text-sm pl-4"
                         >
