@@ -31,8 +31,8 @@ export default function NewsletterPage() {
             {/* Description */}
             <p className="text-[#ccc] text-lg leading-relaxed max-w-xl mx-auto">
               We&apos;re curating thoughtful insights on MICE, corporate travel,
-              experience design, and on-ground excellence.  
-              Stay tuned for stories, strategies, and inspiration—straight from
+              experience design, and onground excellence.  
+              Stay tuned for stories, strategies, and inspiration straight from
               the ICE team.
             </p>
 

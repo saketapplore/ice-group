@@ -164,7 +164,7 @@ export default function GalleryPage() {
               ›
             </button>
 
-            <div className="relative w-[800px] max-w-[80vw] max-h-[80vh]">
+            <div className="relative w-[800px] max-w-[80vw] max-h-[80vh] -mt-5">
               <Image
                 src={galleryImages[selectedIndex].src}
                 alt={galleryImages[selectedIndex].alt}

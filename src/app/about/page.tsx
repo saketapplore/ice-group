@@ -14,9 +14,7 @@ export default function AboutPage() {
             About ICE
           </h1>
           <p className="max-w-3xl text-lg text-[#ccc] leading-relaxed">
-            iCE Group India has stood for excellence, brilliance, and distinction
-            since its inception, building a legacy across travel and corporate
-            events worldwide.
+            iCE Group India, a group that has stood for excellence, brilliance and distinction since its inception. Ever since, the company has grown leaps and bounds and today has a rich legacy of experience, expertise, skill, competence, and exposure garnered in the decade and plus one year of its operations.
           </p>
         </AnimateOnScroll>
 
@@ -31,10 +29,7 @@ export default function AboutPage() {
                 The Story Behind the Brand
               </h2>
               <p className="text-white leading-relaxed">
-                Founded in 2010 under the leadership of Mr. Mohit Khanna, ICE was
-                built with a vision to deliver customized, world-class travel
-                and event experiences. In 2015, Ms. Disha Shah joined as COO,
-                further strengthening operations and growth.
+                The organization was formed on 1st June 2010, under the guidance of Mr. Mohit Khanna, with a vision of becoming the market leader and providing customized services to the clients. Ms. Disha Shah joined the company in the year 2015 as the COO and director. In the span of 15 years, the company added two successful verticals: iCEtravels that focuses on MICE operations and iCEevents dealing in all kinds of corporate events and exhibitions.
               </p>
             </div>
           </AnimateOnScroll>
@@ -65,12 +60,10 @@ export default function AboutPage() {
 
             <div className="space-y-4 text-[#ccc] leading-relaxed">
               <p>
-                Travel is in our DNA. We are driven by the pursuit of crafting
-                meaningful experiences that leave lasting impressions.
+                We are on a constant quest to deliver superlative impressions and experiences for you. Travel is in our DNA and there is perhaps no corner of the world where we haven&apos;t crafted memories for our patrons. For us it is always time for the next adventure.
               </p>
               <p>
-                With iCE Events, we execute large-format bespoke corporate events
-                across the globe, redefining excellence in event execution.
+                Travel and events go hand in hand, and it was only imperative for us that this was the next progression for us. iCE Events is now a name to reckon with in the events space and how. Large formats bespoke corporate events on all turfs of the globe and in the quest of exploring beyond.
               </p>
             </div>
           </AnimateOnScroll>
@@ -94,10 +87,7 @@ export default function AboutPage() {
                 Mission
               </h3>
               <p className="text-white leading-relaxed">
-                Our mission is to deeply understand our client goals and
-                transform them into flawlessly executed events and MICE
-                programs that exceed expectations and deliver measurable
-                impact.
+              To truly understand our client goals and turn that understanding into flawlessly executed events and MICE programs. We don’t just aim to meet client expectations; we strive to create experiences that are precisely planned and impactful and completely exceed what they envisaged.
               </p>
             </div>
           </AnimateOnScroll>
@@ -117,9 +107,7 @@ export default function AboutPage() {
                 Vision
               </h3>
               <p className="text-white leading-relaxed">
-                To be the global benchmark for luxury events and MICE by blending
-                creativity, technology, and operational excellence into
-                immersive, unforgettable experiences.
+              We envision a future where we are the global standard-bearer for luxury event production and MICE. We will achieve this by passionately blending creative inspiration, the latest event technology, and operational excellence to craft sophisticated, immersive, and genuinely unforgettable experiences. Our commitment is to set the benchmark for world-class quality, ensuring every moment we create is a masterpiece of memory.
               </p>
             </div>
           </AnimateOnScroll>

@@ -502,7 +502,7 @@ export default function Home() {
     {
       title: "Travel & Tours",
       description: "Comprehensive travel management including flight bookings, itinerary planning, and package tours to destinations worldwide.",
-      image: "/images/6.webp",
+      image: "/images/our-expertise-3.jpeg",
     },
     {
       title: "Conferences & Summits",
@@ -512,7 +512,7 @@ export default function Home() {
     {
       title: "Travel Services",
       description: "Flight bookings, travel insurance, VISAs, cruise lines, VIP airport lounge access, and fleet management.",
-      image: "/images/8.webp",
+      image: "/images/travel-and-services.JPG",
     },
     {
       title: "Exhibitions & Trade Shows",
@@ -767,15 +767,33 @@ export default function Home() {
 
           {/* Services Grid */}
           <div className="grid gap-9 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {services.map((service, index) => (
-              <div
-                key={service.title}
-                className="animate-fadeInUp"
-                style={{ animationDelay: `${0.1 + index * 0.08}s` }}
-              >
-                <ServiceCard {...service} />
-              </div>
-            ))}
+             {services.map((service, index) => (
+            <AnimateOnScroll
+              key={service.title}
+              animation="fadeInUp"
+              delay={0.1 + index * 0.05}
+            >
+              <article className="group bg-gradient-to-br from-[#454545] to-black rounded-2xl border border-white/10 overflow-hidden shadow-xl transition hover:-translate-y-2 hover:scale-[1.02]">
+                <div className="relative h-[190px] overflow-hidden ">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover transition group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-black/10 opacity-0 group-hover:opacity-100 transition flex items-end p-4 text-sm text-white">
+                    {service.description}
+                  </div>
+                </div>
+
+                <div className="px-4 pt-2 pb-4">
+                  <h3 className="text-white text-lg font-semibold transition group-hover:bg-gradient-to-r group-hover:from-purple-500 group-hover:to-orange-400 group-hover:bg-clip-text group-hover:text-transparent">
+                    {service.title}
+                  </h3>
+                </div>
+              </article>
+            </AnimateOnScroll>
+          ))}
           </div>
 
         </div>
