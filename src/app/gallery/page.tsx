@@ -3,169 +3,174 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
-import styles from "./page.module.css";
 
-// All unique webp images from the images folder (excluding duplicates like "37 (1).webp")
-const webpImageNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57];
+/* ---------- images logic unchanged ---------- */
+const webpImageNumbers = [1,2,3,4,5,6,7,8,9,10,11,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57];
 
 const galleryImages = webpImageNumbers.map((num, index) => ({
   id: index + 1,
   src: `/images/${num}.webp`,
   alt: `Event gallery image ${num}`,
-  caption: "Event Gallery",
 }));
 
-// Create sets of 20 images for the 4x5 grid (4 columns, 5 rows)
 const imagesPerSet = 20;
 const imageSets: typeof galleryImages[] = [];
 
 for (let i = 0; i < galleryImages.length; i += imagesPerSet) {
-  const set = galleryImages.slice(i, i + imagesPerSet);
-  if (set.length === imagesPerSet) {
-    imageSets.push(set);
-  }
+  imageSets.push(galleryImages.slice(i, i + imagesPerSet));
 }
 
-// If there are leftover images, fill the last set
-if (galleryImages.length % imagesPerSet !== 0) {
-  const remaining = galleryImages.slice(-(galleryImages.length % imagesPerSet));
-  const needed = imagesPerSet - remaining.length;
-  for (let i = 0; i < needed && i < galleryImages.length; i++) {
-    if (!remaining.find(img => img.id === galleryImages[i].id)) {
-      remaining.push(galleryImages[i]);
-    }
-  }
-  // Always add the remaining set, even if it's not exactly imagesPerSet
-  // This ensures all images are displayed
-  imageSets.push(remaining);
-}
-
-function GalleryGrid({ onImageClick }: { onImageClick: (image: typeof galleryImages[0]) => void }) {
+/* ---------- GRID ---------- */
+function GalleryGrid({ onImageClick }: { onImageClick: (img: typeof galleryImages[0]) => void }) {
   const [currentSetIndex, setCurrentSetIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
-    if (isPaused || imageSets.length === 0) return;
-    const interval = setInterval(() => {
-      setCurrentSetIndex((prev) => (prev + 1) % imageSets.length);
-    }, 4000); // Change set every 4 seconds
+    if (isPaused) return;
+    const interval = setInterval(
+      () => setCurrentSetIndex((p) => (p + 1) % imageSets.length),
+      4000
+    );
     return () => clearInterval(interval);
-  }, [imageSets.length, isPaused]);
-
-  const currentSet = imageSets[currentSetIndex] || [];
+  }, [isPaused]);
 
   return (
-    <div 
-      className={styles.galleryGridContainer}
+    <div
+      className="relative w-full mt-10"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <div className={styles.galleryGrid}>
-        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19].map((gridIndex) => {
-          const image = currentSet[gridIndex];
-          
-          return (
-            <div
-              key={`grid-${gridIndex}`}
-              className={styles.galleryGridItem}
-            >
-              {imageSets.map((imageSet, setIndex) => {
-                const setImage = imageSet[gridIndex];
-                if (!setImage) return null;
-                
-                return (
-                  <div
-                    key={`${setIndex}-${gridIndex}`}
-                    className={styles.galleryImageWrapper}
-                    style={{
-                      opacity: setIndex === currentSetIndex ? 1 : 0,
-                      transition: "opacity 1.2s ease-in-out",
-                      pointerEvents: setIndex === currentSetIndex ? "auto" : "none",
-                    }}
-                  >
-                    <Image
-                      src={setImage.src}
-                      alt={setImage.alt}
-                      fill
-                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                      style={{ objectFit: "cover" }}
-                      priority={setIndex === currentSetIndex && gridIndex < 2}
-                      onClick={() => onImageClick(setImage)}
-                      className={styles.galleryImage}
-                    />
-                  </div>
-                );
-              })}
-            </div>
-          );
-        })}
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-4">
+        {Array.from({ length: 20 }).map((_, gridIndex) => (
+          <div
+            key={gridIndex}
+            className="relative aspect-[4/3] overflow-hidden rounded-lg bg-[#111]"
+          >
+            {imageSets.map((set, setIndex) => {
+              const img = set[gridIndex];
+              if (!img) return null;
+
+              return (
+                <div
+                  key={`${setIndex}-${gridIndex}`}
+                  className="absolute inset-0 transition-opacity duration-[1200ms]"
+                  style={{
+                    opacity: setIndex === currentSetIndex ? 1 : 0,
+                    pointerEvents: setIndex === currentSetIndex ? "auto" : "none",
+                  }}
+                >
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    className="object-cover cursor-pointer"
+                    onClick={() => onImageClick(img)}
+                  />
+                </div>
+              );
+            })}
+          </div>
+        ))}
       </div>
     </div>
   );
 }
 
+/* ---------- PAGE ---------- */
 export default function GalleryPage() {
-  const [selectedImage, setSelectedImage] = useState<typeof galleryImages[0] | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
-  const handleImageClick = (image: typeof galleryImages[0]) => {
-    setSelectedImage(image);
-  };
+  const closeModal = () => setSelectedIndex(null);
 
-  const closeModal = () => {
-    setSelectedImage(null);
-  };
+  const prevImage = () =>
+    setSelectedIndex((i) => (i! - 1 + galleryImages.length) % galleryImages.length);
+
+  const nextImage = () =>
+    setSelectedIndex((i) => (i! + 1) % galleryImages.length);
 
   useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        closeModal();
-      }
+    const keyHandler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeModal();
+      if (e.key === "ArrowLeft") prevImage();
+      if (e.key === "ArrowRight") nextImage();
     };
 
-    if (selectedImage) {
-      document.addEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'hidden';
+    if (selectedIndex !== null) {
+      document.addEventListener("keydown", keyHandler);
+      document.body.style.overflow = "hidden";
     }
 
     return () => {
-      document.removeEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'unset';
+      document.removeEventListener("keydown", keyHandler);
+      document.body.style.overflow = "unset";
     };
-  }, [selectedImage]);
+  }, [selectedIndex]);
 
   return (
-    <div className={styles.galleryPage} >
-      <div className="container">
-        <section className={styles.gallerySection}>
-        <AnimateOnScroll animation="fadeInUp" delay={0.1}>
-          <h1 className={`text-gradient ${styles.galleryTitle}`}>
-            Gallery
-          </h1>
-          <p className={styles.galleryDescription}>
-            Snapshots from our recent world-class events.
-          </p>
-        </AnimateOnScroll>
+    <div className="min-h-screen bg-[linear-gradient(135deg,#000_0%,#1a1a1a_30%,#2a2a2a_50%,#1a1a1a_70%,#000_100%)]">
+      <div className="container mx-auto px-4">
+        <section className="py-[130px]">
+          <AnimateOnScroll animation="fadeInUp" delay={0.1}>
+            <h1 className="text-gradient text-4xl mb-4">Gallery</h1>
+            <p className="text-[#ccc]">Snapshots from our recent world-class events.</p>
+          </AnimateOnScroll>
 
-        <AnimateOnScroll animation="fadeInUp" delay={0.2}>
-          <GalleryGrid onImageClick={handleImageClick} />
-        </AnimateOnScroll>
+          <AnimateOnScroll animation="fadeInUp" delay={0.2}>
+            <GalleryGrid
+              onImageClick={(img) =>
+                setSelectedIndex(galleryImages.findIndex((i) => i.src === img.src))
+              }
+            />
+          </AnimateOnScroll>
         </section>
       </div>
 
-      {selectedImage && (
-        <div className={styles.modalOverlay} onClick={closeModal}>
-          <div className={styles.modalContent} onClick={closeModal}>
-            <button className={styles.closeButton} onClick={closeModal} aria-label="Close">
+      {/* ---------- MODAL ---------- */}
+      {selectedIndex !== null && (
+        <div
+          className="fixed inset-0 bg-black/95 flex items-center justify-center z-[10000] px-4"
+          onClick={closeModal}
+        >
+          <div
+            className="relative max-w-[80vw] max-h-[80vh] pt-12"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close */}
+            <button
+              onClick={closeModal}
+              className="absolute -top-12 left-1/2 -translate-x-1/2
+              w-12 h-12 rounded-full text-white text-3xl
+              bg-white/10 border border-white/30
+              hover:bg-white/20 transition"
+            >
               ×
             </button>
-            <div className={styles.modalImageContainer}>
+
+            {/* Prev */}
+            <button
+              onClick={prevImage}
+              className="absolute left-[-60px] top-1/2 -translate-y-1/2
+              text-white text-4xl opacity-70 hover:opacity-100"
+            >
+              ‹
+            </button>
+
+            {/* Next */}
+            <button
+              onClick={nextImage}
+              className="absolute right-[-60px] top-1/2 -translate-y-1/2
+              text-white text-4xl opacity-70 hover:opacity-100"
+            >
+              ›
+            </button>
+
+            <div className="relative w-[800px] max-w-[80vw] max-h-[80vh]">
               <Image
-                src={selectedImage.src}
-                alt={selectedImage.alt}
+                src={galleryImages[selectedIndex].src}
+                alt={galleryImages[selectedIndex].alt}
                 width={800}
                 height={800}
-                sizes="(max-width: 768px) 90vw, (max-width: 480px) 95vw, 800px"
-                style={{ objectFit: "contain", width: "100%", height: "100%" }}
+                className="object-contain w-full h-full"
                 priority
               />
             </div>

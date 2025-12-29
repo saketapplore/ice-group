@@ -570,6 +570,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <IntroSection />
 
       <ClientsSection />
 
@@ -674,7 +675,7 @@ export default function Home() {
             <AnimateOnScroll animation="fadeInUp" delay={0.1}>
               <div className={styles.statCard}>
                 <div className={styles.statNumber}>
-                  <CountUpNumber target={3000} />
+                  <CountUpNumber target={2200} />
                 </div>
                 <div className={styles.statLabel}>Domestic MICE</div>
               </div>
@@ -682,7 +683,7 @@ export default function Home() {
             <AnimateOnScroll animation="fadeInUp" delay={0.2}>
               <div className={styles.statCard}>
                 <div className={styles.statNumber}>
-                  <CountUpNumber target={950} />
+                  <CountUpNumber target={650} />
                 </div>
                 <div className={styles.statLabel}>International MICE</div>
               </div>
@@ -745,7 +746,7 @@ export default function Home() {
           </div>
         </div>
       </section> */}
-      <IntroSection />
+     
 
       <section className="relative py-[100px] bg-[#fafafa] text-black animate-fadeIn">
         <div className="mx-auto max-w-7xl px-6">

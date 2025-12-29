@@ -8,7 +8,7 @@ export default function Footer() {
     return (
         <footer className="bg-black border-t border-white/10 pt-20 pb-8">
             {/* Main container */}
-            <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 gap-y-14 gap-x-20 md:grid-cols-2 lg:grid-cols-[3fr_1fr_1fr_10fr]">
+            <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 gap-y-14 gap-x-20 md:grid-cols-2 lg:grid-cols-[3.5fr_1fr_1fr_10fr]">
 
                 {/* COLUMN 1 — LOGO + NEWSLETTER */}
                 <div className="flex flex-col items-start gap-6">
@@ -142,7 +142,7 @@ export default function Footer() {
                                 className="flex items-center gap-2 hover:text-white transition"
                             >
                                 <Mail size={14} />
-                                Email : info@icegroupindia.com
+                                Email : info@icexperiences.com
                             </a>
                         </div>
 
@@ -177,7 +177,7 @@ export default function Footer() {
                                 className="flex items-center gap-2 hover:text-white transition w-full whitespace-nowrap "
                             >
                                 <Mail size={14} className="text-current flex-shrink-0" />
-                                Email : mohit.khanna@icegroupindia.com
+                                Email : mohit@icexperiences.com 
                             </a></div>
 
 

@@ -1,74 +1,52 @@
 "use client";
 
-import Button from '@/components/Button';
-import Image from 'next/image';
-import AnimateOnScroll from '@/components/AnimateOnScroll';
-import styles from './page.module.css';
-
-const newsletters = [
-    {
-        title: 'MICE Pulse – Q1 Highlights',
-        date: 'March 2025',
-        summary: 'Trends from global conferences, incentive travel ideas, and how hybrid formats are evolving.',
-        image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80',
-    },
-    {
-        title: 'Experience Design Playbook',
-        date: 'January 2025',
-        summary: 'Storytelling frameworks and staging tips to make your next event unforgettable.',
-        image: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=800&q=80',
-    },
-    {
-        title: 'Travel & Incentives Insider',
-        date: 'November 2024',
-        summary: 'Top destinations, visa tips, and ways to reward high performers with memorable journeys.',
-        image: 'https://images.unsplash.com/photo-1526779259212-939e64788e3c?auto=format&fit=crop&w=800&q=80',
-    },
-    {
-        title: 'Operations & On‑Ground Excellence',
-        date: 'September 2024',
-        summary: 'Checklists and backstage learnings from large-scale events across India and the UAE.',
-        image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80',
-    },
-];
+import AnimateOnScroll from "@/components/AnimateOnScroll";
 
 export default function NewsletterPage() {
-    return (
-        <div className={`container ${styles.newsletterPage}`}>
-            {/* Recent newsletters */}
-            <section className={styles.newslettersSection}>
-                <AnimateOnScroll animation="fadeInUp" delay={0.1}>
-                    <h2 className={styles.sectionTitle}>Latest Newsletters</h2>
-                    <p className={styles.sectionDescription}>
-                        A quick snapshot of what we&apos;ve been sharing with our partners and clients.
-                    </p>
-                </AnimateOnScroll>
+  return (
+    <div className="container mx-auto px-4">
+      <section className="pt-[140px] pb-[100px] flex items-center justify-center min-h-[70vh]">
 
-                <div className={styles.newslettersGrid}>
-                    {newsletters.map((item, index) => (
-                        <AnimateOnScroll key={item.title} animation="fadeInUp" delay={0.1 + index * 0.1}>
-                            <article className={styles.newsletterCard}>
-                            <div className={styles.newsletterImageWrap}>
-                                <Image
-                                    src={item.image}
-                                    alt={item.title}
-                                    fill
-                                    sizes="(min-width: 1024px) 20vw, 100vw"
-                                    style={{ objectFit: 'cover' }}
-                                />
-                            </div>
-                            <div className={styles.newsletterCardContent}>
-                                <p className={styles.newsletterDate}>
-                                    {item.date}
-                                </p>
-                                <h3 className={styles.newsletterTitle}>{item.title}</h3>
-                                <p className={styles.newsletterSummary}>{item.summary}</p>
-                            </div>
-                        </article>
-                        </AnimateOnScroll>
-                    ))}
-                </div>
-            </section>
-        </div>
-    );
+        <AnimateOnScroll animation="fadeInUp" delay={0.1}>
+          <div
+            className="
+              max-w-2xl w-full text-center
+              bg-[linear-gradient(135deg,rgba(69,69,69,0.3)_0%,rgba(0,0,0,0.55)_50%,rgba(69,69,69,0.3)_100%)]
+              border border-white/10
+              rounded-2xl
+              p-10
+            "
+          >
+            {/* Badge */}
+            <span className="inline-block mb-6 px-4 py-1 text-sm tracking-wide rounded-full
+              bg-white/5 text-white/80 border border-white/10">
+              ICE INSIGHTS
+            </span>
+
+            {/* Heading */}
+            <h1 className="text-gradient text-3xl md:text-4xl font-bold mb-4">
+              Newsletters Coming Soon
+            </h1>
+
+            {/* Description */}
+            <p className="text-[#ccc] text-lg leading-relaxed max-w-xl mx-auto">
+              We&apos;re curating thoughtful insights on MICE, corporate travel,
+              experience design, and on-ground excellence.  
+              Stay tuned for stories, strategies, and inspiration—straight from
+              the ICE team.
+            </p>
+
+            {/* Divider */}
+            <div className="my-8 h-px w-full bg-white/10" />
+
+            {/* Subtext */}
+            <p className="text-sm text-white/60 tracking-wide">
+              Launching shortly · 2026
+            </p>
+          </div>
+        </AnimateOnScroll>
+
+      </section>
+    </div>
+  );
 }
