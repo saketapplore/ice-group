@@ -79,7 +79,7 @@ function TestimonialCarousel() {
       company: "Leading Global Tech Foundation",
     },
     {
-      text: "The Thailand incentive was a perfect blend of adventure, relaxation, and impeccable arrangements. From travel to stay to on-ground experiences - everything was 10/10. Truly memorable.",
+      text: "The Thailand incentive was a perfect blend of adventure, relaxation, and impeccable arrangements. From travel to stay to on ground experiences  everything was 10/10. Truly memorable.",
       author: "Regional Partner",
       company: "BFSI sector",
     },

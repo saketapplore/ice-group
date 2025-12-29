@@ -37,7 +37,7 @@ export default function AboutPage() {
           <AnimateOnScroll animation="fadeInUp" delay={0.3}>
             <div className="relative h-[260px] rounded-2xl overflow-hidden border border-[#222]">
               <Image
-                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80"
+                src="/images/about-team.jpeg"
                 alt="ICE team"
                 fill
                 className="object-cover"
